@@ -24,3 +24,13 @@ test= int(binaryPW,2) ^ int(binaryKey,2)
 xor = bin(test)[2:]
 
 print(xor)
+
+result = []
+for index in range(0, len(xor), 8):
+    result.append(xor[index : index + 8])
+
+test = ''
+for i in result:
+    test  += str(int(i, 2))
+
+print(test)
