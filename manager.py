@@ -1,10 +1,10 @@
+import time
+
+pw = "ThisIsJustAPasswordTestThisIsJustAPasswordTest"
+key = "100010010000110101101100110010101100"
 
 
-pw = "Encrypt"
-key = "asdlfjasklfj;asdjkf;klasdjfsdf"
-
-
-def encrypt(strPassword, strKey):
+def fnEncryptString(strPassword, strKey):
     # Password String to binary string
     strBinaryPW = ''
     for char in [bin(ord(char)) for char in strPassword]:
@@ -34,7 +34,7 @@ def encrypt(strPassword, strKey):
     return strCipherText
 
 
-def decrypt(strCiperText, strKey):
+def fnDecryptString(strCiperText, strKey):
     # Ciphertext string to binary string
     strBinaryCipherText = ''
     for i in range(0, len(strCiperText), 3):
@@ -61,6 +61,8 @@ def decrypt(strCiperText, strKey):
     # return the clear text
     return strClearText
 
-
+start = time.time()
 #encrypt(pw, key)
-print(decrypt(encrypt(pw, key), key))
+print(fnDecryptString(fnEncryptString(pw, key), key))
+
+print(time.time() - start)
