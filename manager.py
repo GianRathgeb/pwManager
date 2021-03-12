@@ -1,7 +1,7 @@
 import time
 
-pw = "ThisIsJustAPasswordTestThisIsJustAPasswordTest"
-key = "100010010000110101101100110010101100"
+arrPasswords = ['PasswordTest1', 'PasswordTest2', 'PasswordTest3', 'PasswordTest4', 'PasswordTest5', 'PasswordTest6']
+strEncryptionKey = "kasjdfkasflkjasdfölkjasdöljkfasdf"
 
 
 def fnEncryptString(strPassword, strKey):
@@ -61,8 +61,15 @@ def fnDecryptString(strCiperText, strKey):
     # return the clear text
     return strClearText
 
-start = time.time()
-#encrypt(pw, key)
-print(fnDecryptString(fnEncryptString(pw, key), key))
+time1 = time.time()
+test = float(0)
+for t in range(5000):
+    start = time.time()
+    #encrypt(pw, key)
+    for i in arrPasswords:
+        fnDecryptString(fnEncryptString(i, strEncryptionKey), strEncryptionKey)
 
-print(time.time() - start)
+    test += time.time() - start
+test = test / 5000
+print(f"Average execution time {str(test)}")
+print(f"Total execution time {time.time() - time1}")
