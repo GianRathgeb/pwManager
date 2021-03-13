@@ -34,7 +34,7 @@ def fnEncryptString(strPassword, strKey):
 
 
 def fnDecryptString(strCiperText, strKey):
-    # Ciphertext string to binary stringt
+    # Ciphertext string to binary string
     strBinaryCipherText = ''
     for i in range(0, len(strCiperText), 3):
         strBinaryCipherText += bin(int(strCiperText[i : i + 3])).replace("0b", "").zfill(7)
