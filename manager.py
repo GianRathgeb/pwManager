@@ -1,7 +1,7 @@
 import time
 
-arrPasswords = ['PasswordTest1', 'PasswordTest2', 'PasswordTest3', 'PasswordTest4', 'PasswordTest5', 'PasswordTest6']
-strEncryptionKey = "1"
+arrPasswords = ['TestPassword1', 'TestPassword2', 'TestPassword3', 'TestPassword4', 'TestPassword5', 'TestPassword6']
+strEncryptionKey = "s"
 
 def fnEncryptString(strPassword, strKey):
     # Password String to binary string
@@ -37,8 +37,11 @@ def fnDecryptString(strCiperText, strKey):
     # Ciphertext string to binary string
     strBinaryCipherText = ''
     for i in range(0, len(strCiperText), 3):
-        strBinaryCipherText += bin(int(strCiperText[i : i + 3])).replace("0b", "").zfill(7)
-    strBinaryCipherText = strBinaryCipherText[0:-1]
+        if i < len(strCiperText) - 3:
+            strBinaryCipherText += bin(int(strCiperText[i : i + 3])).replace("0b", "").zfill(7)
+        else:
+            strBinaryCipherText += bin(int(strCiperText[i : i + 3])).replace("0b", "").zfill(6)
+    #strBinaryCipherText = strBinaryCipherText[0:-1]
     print(f"Binary Txt {strBinaryCipherText}")
     # Key string to binary string
     strBinaryKey = ''
