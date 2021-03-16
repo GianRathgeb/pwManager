@@ -12,8 +12,6 @@ def fnReadPasswords(strFileName):
         return arrPasswords
     
 def fnWritePassword(strFileName, arrPasswords):
-    with open(strFileName, mode='w') as objPasswordFile:
+    with open(strFileName, mode='a') as objPasswordFile:
         objPasswordFile = csv.writer(objPasswordFile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-
-        for row in arrPasswords:
-            objPasswordFile.writerow(row)
+        objPasswordFile.writerow(arrPasswords)

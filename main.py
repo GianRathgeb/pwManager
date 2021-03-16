@@ -1,7 +1,20 @@
 import functions
 import fileHandler
 
-#print(functions.fnEncryptString('TestPassword', 'TestKey'))
+#! Key to test: TestKey
+
+def fnChooseMenu(strShowMenu, strShowError, **kwargs):
+        
+        try:
+                intUserInput = int(input(strShowMenu))
+                print("Select: " + kwargs["m" + str(intUserInput)])
+                return intUserInput
+        except ValueError:
+                print(strShowError)
+                fnChooseMenu(strShowMenu, strShowError)
+        except KeyError:
+                print(strShowError)
+                fnChooseMenu(strShowMenu, strShowError)
 
 strFilePath = input("Enter file name (default: passwords.csv): ")
 if strFilePath == "":
@@ -12,3 +25,14 @@ strPassword = input("Enter Password to encrypt passwords: ")
 test = fileHandler.fnReadPasswords(strFilePath)
 for i in test:
     print(functions.fnDecryptString(i, strPassword))
+
+
+menu = fnChooseMenu("1: Input new PW\n2: Exit Program\n", "Please a valid menu! ", m1 = "Input new PW", m2 = "Exit program")
+
+if menu == 1:
+        newPassword = input("Enter a new password:\n")
+        newPassword = functions.fnEncryptString(newPassword, strPassword)
+        fileHandler.fnWritePassword(strFilePath, [newPassword])
+
+elif menu == 2:
+        exit()
