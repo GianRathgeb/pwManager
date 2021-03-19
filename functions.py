@@ -1,4 +1,5 @@
 import time
+import hashlib
 
 def fnEncryptString(strPassword, strKey):
     # Password String to binary string
@@ -60,3 +61,6 @@ def fnDecryptString(strCiperText, strKey):
     # return the clear text
     return strClearText
 
+def fnValidateKey(hash, key):
+    if hash == hashlib.sha256(key.encode('utf-8')).hexdigest():
+        return True
