@@ -27,7 +27,9 @@ for i, j in enumerate(test):
         if i > 0:
                 print(functions.fnDecryptString(j, strPassword))
         else:
-                functions.fnValidateKey(j, strPassword)
+                print(functions.fnDecryptString(j, strPassword))
+                print()
+                print(functions.fnValidateKey(j, strPassword))
 
 
 menu = fnChooseMenu("1: Input new PW\n2: Exit Program\n", "Please a valid menu! ", m1 = "Input new PW", m2 = "Exit program")
