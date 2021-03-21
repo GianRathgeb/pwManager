@@ -62,9 +62,8 @@ def fnDecryptString(strCiperText, strKey):
     return strClearText
 
 def fnValidateKey(hash, key):
-
-    strHashToTest = hashlib.sha256(key.encode()).hexdigest()
-    print(hash, strHashToTest)
+    strKeyHash = hashlib.sha256(key.encode()).hexdigest()
+    strHashToTest = fnEncryptString(strKeyHash, key)
     if hash == strHashToTest:
         return True
     else: 

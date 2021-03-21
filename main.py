@@ -1,5 +1,6 @@
 import functions
 import fileHandler
+import hashlib
 
 #! Key to test: TestKey
 
@@ -27,9 +28,9 @@ for i, j in enumerate(test):
         if i > 0:
                 print(functions.fnDecryptString(j, strPassword))
         else:
-                print(functions.fnDecryptString(j, strPassword))
-                print()
-                print(functions.fnValidateKey(j, strPassword))
+                if not functions.fnValidateKey(j, strPassword):
+                        print("Wrong Password!")
+                        exit(0)
 
 
 menu = fnChooseMenu("1: Input new PW\n2: Exit Program\n", "Please a valid menu! ", m1 = "Input new PW", m2 = "Exit program")
