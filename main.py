@@ -2,6 +2,8 @@ import functions
 import fileHandler
 import hashlib
 
+# TODO: Use object for password manager and file handler
+
 #! Key to test: TestKey
 
 def fnChooseMenu(strShowMenu, strShowError, **kwargs):
