@@ -11,7 +11,14 @@ def fnReadPasswords(strFileName):
                 print("No Passwords found in file")
         return arrPasswords
     
-def fnWritePassword(strFileName, arrPasswords):
+def fnWritePassword(strFileName, strPassword):
     with open(strFileName, mode='a+') as objPasswordFile:
+        objPasswordFile.write(f"\n{strPassword}")
+
+def fnRewriteFile(strFileName, strPasswordHash, arrPasswords):
+    with open(strFileName, mode='w') as objPasswordFile:
+        strToWrite = f"{strPasswordHash}"
         for i in arrPasswords:
-            objPasswordFile.write(f"\n{i}")
+            strToWrite += f"\n{i[0]}"
+        objPasswordFile.write(strToWrite)
+
