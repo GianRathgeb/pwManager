@@ -2,8 +2,6 @@ import functions
 import fileHandler
 import hashlib
 
-# TODO: Use object for password manager and file handler
-
 #! Key to test: TestKey
 
 def fnChooseMenu(strShowMenu, strShowError, **kwargs):
@@ -53,7 +51,7 @@ def fnInit():
                 strFilePath = "passwords.csv"
 
         strPassword = input("Enter Password to encrypt passwords: ")
-        print("\n\n\n\n\n\n\n\nPassword manager by Gian Rathgeb\n\n")
+        print("\n\n\n\n\n\n\n\nPassword Manager by Gian Rathgeb\n\n")
         fnReadPasswords(strFilePath, strPassword)
 
 def fnReadPasswords(strFilePath, strPassword):
@@ -73,3 +71,6 @@ def fnReadPasswords(strFilePath, strPassword):
 
 
 fnInit()
+
+# TODO: Make the manager and file handler class based
+
