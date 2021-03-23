@@ -19,37 +19,57 @@ def fnChooseMenu(strShowMenu, strShowError, **kwargs):
                 print(strShowError)
                 fnChooseMenu(strShowMenu, strShowError)
 
-strFilePath = input("Enter file name (default: passwords.csv): ")
-if strFilePath == "":
-        strFilePath = "passwords.csv"
+def fnMenu(strPassword, strFilePath, arrPasswords, strHashPassword):
+        menu = fnChooseMenu("1: Show all passwords\n2: Input new Password\n3: Delete a Password\n4: Exit Program\n", "Please a valid menu! ", m1="Show all passwords", m2 = "Input new Password", m3 = "Delete a Password", m4 = "Exit program")
+        if menu == 1:
+                print("\n\n")
+                for i, j in enumerate(arrPasswords):
+                        print(i, j[1])
+                print("\n\n")
+                fnReadPasswords(strFilePath, strPassword)
+        elif menu == 2:
+                print("\n\n")
+                newPassword = input("Enter a new password:\n")
+                newPassword = functions.fnEncryptString(newPassword, strPassword)
+                fileHandler.fnWritePassword(strFilePath, newPassword)
+                print("\n\n")   
+                fnReadPasswords(strFilePath, strPassword)
 
-strPassword = input("Enter Password to encrypt passwords: ")
+        elif menu == 3:
+                print("\n\n")
+                for i, j in enumerate(arrPasswords):
+                        print(i, j[1])
+                deletePassword = int(input("Which password do you want to delete? (Use number)\n"))
+                arrPasswords.pop(deletePassword)
+                fileHandler.fnRewriteFile(strFilePath, strHashPassword, arrPasswords)
+                print("\n\n")
+                fnReadPasswords(strFilePath, strPassword)
+        elif menu == 4:
+                exit()
 
-test = fileHandler.fnReadPasswords(strFilePath)
-arrPasswords = []
-for i, j in enumerate(test):
-        if i > 0:
-                tempPassword = functions.fnDecryptString(j, strPassword)
-                arrPasswords.append([j, tempPassword])
-                print(tempPassword)
-        else:
-                strHashPassword = j
-                if not functions.fnValidateKey(strHashPassword, strPassword):
-                        print("Wrong Password!")
-                        exit(0)
+def fnInit():
+        strFilePath = input("Enter file name (default: passwords.csv): ")
+        if strFilePath == "":
+                strFilePath = "passwords.csv"
+
+        strPassword = input("Enter Password to encrypt passwords: ")
+        print("\n\n\n\n\n\n\n\nPassword manager by Gian Rathgeb\n\n")
+        fnReadPasswords(strFilePath, strPassword)
+
+def fnReadPasswords(strFilePath, strPassword):
+        test = fileHandler.fnReadPasswords(strFilePath)
+        arrPasswords = []
+        for i, j in enumerate(test):
+                if i > 0:
+                        tempPassword = functions.fnDecryptString(j, strPassword)
+                        arrPasswords.append([j, tempPassword])
+                else:
+                        strHashPassword = j
+                        if not functions.fnValidateKey(strHashPassword, strPassword):
+                                print("Wrong Password!")
+                                exit(0)
+        fnMenu(strPassword, strFilePath, arrPasswords, strHashPassword)
 
 
-menu = fnChooseMenu("1: Input new Password\n2: Delete a Password\n3: Exit Program\n", "Please a valid menu! ", m1 = "Input new Password", m2= "Delete a Password", m3 = "Exit program")
 
-if menu == 1:
-        newPassword = input("Enter a new password:\n")
-        newPassword = functions.fnEncryptString(newPassword, strPassword)
-        fileHandler.fnWritePassword(strFilePath, newPassword)
-elif menu == 2:
-        for i, j in enumerate(arrPasswords):
-                print(i, j[1])
-        deletePassword = int(input("Which password do you want to delete? (Use number)\n"))
-        arrPasswords.pop(deletePassword)
-        fileHandler.fnRewriteFile(strFilePath, strHashPassword, arrPasswords)
-elif menu == 3:
-        exit()
+fnInit()
