@@ -4,21 +4,23 @@ import hashlib
 
 #! Key to test: TestKey
 
-def fnChooseMenu(strShowMenu, strShowError, **kwargs):
-        
+def fnChooseMenu(strShowError, **kwargs):
+        strShowMenu = ""
+        for key, value in kwargs.items():
+                strShowMenu += f"{key[-1]}: {value}\n"
         try:
                 intUserInput = int(input(strShowMenu))
                 print("Select: " + kwargs["m" + str(intUserInput)])
                 return intUserInput
         except ValueError:
                 print(strShowError)
-                fnChooseMenu(strShowMenu, strShowError)
+                fnChooseMenu(strShowError, **kwargs)
         except KeyError:
                 print(strShowError)
-                fnChooseMenu(strShowMenu, strShowError)
+                fnChooseMenu(strShowError, **kwargs)
 
 def fnMenu(strPassword, strFilePath, arrPasswords, strHashPassword):
-        menu = fnChooseMenu("1: Show all passwords\n2: Input new Password\n3: Delete a Password\n4: Exit Program\n", "Please a valid menu! ", m1="Show all passwords", m2 = "Input new Password", m3 = "Delete a Password", m4 = "Exit program")
+        menu = fnChooseMenu("Please a valid menu! ", m1="Show all passwords", m2 = "Input new Password", m3 = "Delete a Password", m4 = "Exit program")
         if menu == 1:
                 print("\n\n")
                 for i, j in enumerate(arrPasswords):
