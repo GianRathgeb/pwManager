@@ -19,6 +19,7 @@ def fnChooseMenu(strShowError, **kwargs):
                 print(strShowError)
                 fnChooseMenu(strShowError, **kwargs)
 
+
 def fnMenu(strPassword, strFilePath, arrPasswords, strHashPassword):
         menu = fnChooseMenu("Please a valid menu! ", m1="Show all passwords", m2 = "Input new Password", m3 = "Delete a Password", m4 = "Exit program")
         if menu == 1:
@@ -47,6 +48,7 @@ def fnMenu(strPassword, strFilePath, arrPasswords, strHashPassword):
         elif menu == 4:
                 exit()
 
+
 def fnInit():
         strFilePath = input("Enter file name (default: passwords.csv): ")
         if strFilePath == "":
@@ -55,6 +57,7 @@ def fnInit():
         strPassword = input("Enter Password to encrypt passwords: ")
         print("\n\n\n\n\n\n\n\nPassword Manager by Gian Rathgeb\n\n")
         fnReadPasswords(strFilePath, strPassword)
+
 
 def fnReadPasswords(strFilePath, strPassword):
         test = fileHandler.fnReadPasswords(strFilePath)
