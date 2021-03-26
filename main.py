@@ -41,10 +41,14 @@ def fnMenu(strPassword, strFilePath, arrPasswords, strHashPassword):
                 for i, j in enumerate(arrPasswords):
                         print(i, j[1])
                 deletePassword = int(input("Which password do you want to delete? (Use number)\n"))
-                arrPasswords.pop(deletePassword)
-                fileHandler.fnRewriteFile(strFilePath, strHashPassword, arrPasswords)
-                print("\n\n")
-                fnReadPasswords(strFilePath, strPassword)
+                try:
+                        arrPasswords.pop(deletePassword)
+                        fileHandler.fnRewriteFile(strFilePath, strHashPassword, arrPasswords)
+                        print("\n\n")
+                        fnReadPasswords(strFilePath, strPassword)
+                except IndexError:
+                        print("Please enter a correct password")
+                        fnReadPasswords(strFilePath, strPassword)
         elif menu == 4:
                 exit()
 
@@ -69,7 +73,6 @@ def fnReadPasswords(strFilePath, strPassword):
                 else:
                         strHashPassword = j
                         if not functions.fnValidateKey(strHashPassword, strPassword):
-                                print("Wrong Password!")
                                 exit(0)
         fnMenu(strPassword, strFilePath, arrPasswords, strHashPassword)
 

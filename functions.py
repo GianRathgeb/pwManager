@@ -67,4 +67,5 @@ def fnValidateKey(hash, key):
     if hash == strHashToTest:
         return True
     else: 
+        print("Wrong Password!")
         return False
