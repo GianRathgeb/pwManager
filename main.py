@@ -1,6 +1,7 @@
 import functions
 import fileHandler
 import hashlib
+import fileHandlerClasses
 
 #! Key to test: TestKey
 
@@ -21,6 +22,7 @@ def fnChooseMenu(strShowError, **kwargs):
 
 
 def fnMenu(strPassword, strFilePath, arrPasswords, strHashPassword):
+        global fileWriter
         menu = fnChooseMenu("Please a valid menu! ", m1="Show all passwords", m2 = "Input new Password", m3 = "Delete a Password", m4 = "Exit program")
         if menu == 1:
                 print("\n\n")
@@ -32,7 +34,7 @@ def fnMenu(strPassword, strFilePath, arrPasswords, strHashPassword):
                 print("\n\n")
                 newPassword = input("Enter a new password:\n")
                 newPassword = functions.fnEncryptString(newPassword, strPassword)
-                fileHandler.fnWritePassword(strFilePath, newPassword)
+                fileWriter.fnWritePassword(newPassword)
                 print("\n\n")   
                 fnReadPasswords(strFilePath, strPassword)
 
@@ -43,7 +45,7 @@ def fnMenu(strPassword, strFilePath, arrPasswords, strHashPassword):
                 deletePassword = int(input("Which password do you want to delete? (Use number)\n"))
                 try:
                         arrPasswords.pop(deletePassword)
-                        fileHandler.fnRewriteFile(strFilePath, strHashPassword, arrPasswords)
+                        fileWriter.fnRewriteFile(strHashPassword, arrPasswords)
                         print("\n\n")
                         fnReadPasswords(strFilePath, strPassword)
                 except IndexError:
@@ -53,31 +55,34 @@ def fnMenu(strPassword, strFilePath, arrPasswords, strHashPassword):
                 exit()
 
 
+def fnReadPasswords(strFilePath, strPassword):
+        fileWriter.fnReadPasswords()
+        tempArr = []
+        for i, j in enumerate(fileWriter.arrPasswords):
+                if i > 0:
+                        tempPassword = functions.fnDecryptString(j, strPassword)
+                        tempArr.append([j, tempPassword])
+                else:
+                        strHashPassword = j
+                        if not functions.fnValidateKey(strHashPassword, strPassword):
+                                exit(0)
+        fnMenu(strPassword, strFilePath, tempArr, strHashPassword)
+
+
+
 def fnInit():
         strFilePath = input("Enter file name (default: passwords.csv): ")
         if strFilePath == "":
                 strFilePath = "passwords.csv"
-
+        global fileWriter
+        fileWriter = fileHandlerClasses.FileWriter(strFilePath)
         strPassword = input("Enter Password to encrypt passwords: ")
         print("\n\n\n\n\n\n\n\nPassword Manager by Gian Rathgeb\n\n")
         fnReadPasswords(strFilePath, strPassword)
 
 
-def fnReadPasswords(strFilePath, strPassword):
-        test = fileHandler.fnReadPasswords(strFilePath)
-        arrPasswords = []
-        for i, j in enumerate(test):
-                if i > 0:
-                        tempPassword = functions.fnDecryptString(j, strPassword)
-                        arrPasswords.append([j, tempPassword])
-                else:
-                        strHashPassword = j
-                        if not functions.fnValidateKey(strHashPassword, strPassword):
-                                exit(0)
-        fnMenu(strPassword, strFilePath, arrPasswords, strHashPassword)
-
-
-
+fileWriter = None
 fnInit()
 
 # TODO: Make the manager and file handler class based
+# TODO: arrTemp should not be an array, it should be a dictionary

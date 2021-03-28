@@ -6,13 +6,12 @@ class FileWriter:
     def fnReadPasswords(self):
         with open(self.strFileName) as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')
-            arrPasswords = []
+            self.arrPasswords = []
             for row in csv_reader:
                 try:
-                    arrPasswords.append(row[0])
+                    self.arrPasswords.append(row[0])
                 except IndexError:
                     print("No Passwords found in file")
-            return arrPasswords
         
     def fnWritePassword(self, strPassword):
         with open(self.strFileName, mode='a+') as objPasswordFile:
