@@ -61,11 +61,3 @@ def fnDecryptString(strCiperText, strKey):
     # return the clear text
     return strClearText
 
-def fnValidateKey(hash, key):
-    strKeyHash = hashlib.sha256(key.encode()).hexdigest()
-    strHashToTest = fnEncryptString(strKeyHash, key)
-    if hash == strHashToTest:
-        return True
-    else: 
-        print("Wrong Password!")
-        return False

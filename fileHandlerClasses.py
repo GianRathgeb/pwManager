@@ -1,4 +1,7 @@
 import csv
+import hashlib
+import functions
+
 class FileWriter:
     def __init__(self, fileName):
         self.strFileName = fileName
@@ -24,3 +27,11 @@ class FileWriter:
                 strToWrite += f"\n{i[0]}"
             objPasswordFile.write(strToWrite)
 
+
+    def fnValidateKey(self, encrpytedHash, key):
+        strKeyHash = hashlib.sha256(key.encode()).hexdigest()
+        strHashToTest = functions.fnEncryptString(strKeyHash, key)
+        if encrpytedHash == strHashToTest:
+            return True
+        else: 
+            return False
