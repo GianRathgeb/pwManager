@@ -24,7 +24,7 @@ class FileWriter:
         with open(self.strFileName, mode='w') as objPasswordFile:
             strToWrite = f"{strPasswordHash}"
             for password in dictPassword.items():
-                strToWrite += f"\n{password[1]}"
+                strToWrite += f"\n{password[1][1]}"
             objPasswordFile.write(strToWrite)
 
 

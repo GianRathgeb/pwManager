@@ -26,7 +26,7 @@ def fnMenu(strPassword, arrPasswords):
         if menu == 1:
                 print("\n\n")
                 for i, j in arrPasswords.items():
-                        print(i, j)
+                        print(i, j[0])
                 print("\n\n")
                 fnReadPasswords(strPassword)
         elif menu == 2:
@@ -40,7 +40,7 @@ def fnMenu(strPassword, arrPasswords):
         elif menu == 3:
                 print("\n\n")
                 for i, j in arrPasswords.items():
-                        print(i, j)
+                        print(i, j[0])
                 deletePassword = int(input("Which password do you want to delete? (Use number)\n"))
                 try:
                         del arrPasswords[deletePassword]
@@ -48,7 +48,7 @@ def fnMenu(strPassword, arrPasswords):
                         fileWriter.fnRewriteFile(keyHash, arrPasswords)
                         print("\n\n")
                         fnReadPasswords(strPassword)
-                except IndexError:
+                except KeyError:
                         print("Please enter a correct password")
                         fnReadPasswords(strPassword)
         elif menu == 4:
@@ -61,7 +61,7 @@ def fnReadPasswords(strPassword):
         for i, j in enumerate(fileWriter.arrPasswords):
                 if i > 0:
                         tempPassword = functions.fnDecryptString(j, strPassword)
-                        dictPassword[i - 1] = tempPassword
+                        dictPassword[i - 1] = [tempPassword, j]
                 else:
                         global strKey
                         global keyHash
