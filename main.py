@@ -1,5 +1,4 @@
 import functions
-import fileHandler
 import hashlib
 import fileHandlerClasses
 
@@ -26,8 +25,8 @@ def fnMenu(strPassword, arrPasswords):
         menu = fnChooseMenu("Please a valid menu! ", m1="Show all passwords", m2 = "Input new Password", m3 = "Delete a Password", m4 = "Exit program")
         if menu == 1:
                 print("\n\n")
-                for i, j in enumerate(arrPasswords):
-                        print(i, j[1])
+                for i, j in arrPasswords.items():
+                        print(i, j)
                 print("\n\n")
                 fnReadPasswords(strPassword)
         elif menu == 2:
@@ -40,11 +39,11 @@ def fnMenu(strPassword, arrPasswords):
 
         elif menu == 3:
                 print("\n\n")
-                for i, j in enumerate(arrPasswords):
-                        print(i, j[1])
+                for i, j in arrPasswords.items():
+                        print(i, j)
                 deletePassword = int(input("Which password do you want to delete? (Use number)\n"))
                 try:
-                        arrPasswords.pop(deletePassword)
+                        del arrPasswords[deletePassword]
                         global keyHash
                         fileWriter.fnRewriteFile(keyHash, arrPasswords)
                         print("\n\n")
@@ -58,18 +57,18 @@ def fnMenu(strPassword, arrPasswords):
 
 def fnReadPasswords(strPassword):
         fileWriter.fnReadPasswords()
-        tempArr = []
+        dictPassword = {}
         for i, j in enumerate(fileWriter.arrPasswords):
                 if i > 0:
                         tempPassword = functions.fnDecryptString(j, strPassword)
-                        tempArr.append([j, tempPassword])
+                        dictPassword[i - 1] = tempPassword
                 else:
                         global strKey
                         global keyHash
                         keyHash = j
                         if not fileWriter.fnValidateKey(keyHash, strKey):
                                 exit(0)
-        fnMenu(strPassword, tempArr)
+        fnMenu(strPassword, dictPassword)
 
 
 def fnInit():

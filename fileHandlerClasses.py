@@ -20,11 +20,11 @@ class FileWriter:
         with open(self.strFileName, mode='a+') as objPasswordFile:
             objPasswordFile.write(f"\n{strPassword}")
 
-    def fnRewriteFile(self, strPasswordHash, arrPasswords):
+    def fnRewriteFile(self, strPasswordHash, dictPassword):
         with open(self.strFileName, mode='w') as objPasswordFile:
             strToWrite = f"{strPasswordHash}"
-            for i in arrPasswords:
-                strToWrite += f"\n{i[0]}"
+            for password in dictPassword.items():
+                strToWrite += f"\n{password[1]}"
             objPasswordFile.write(strToWrite)
 
 
