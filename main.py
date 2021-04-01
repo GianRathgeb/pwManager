@@ -1,5 +1,4 @@
 import functions
-import hashlib
 import fileHandlerClasses
 
 #! Key to test: TestKey
@@ -83,6 +82,7 @@ def fnInit():
         fnReadPasswords(strKey)
 
 
+# Define global variables
 fileWriter = None
 strKey = ""
 keyHash = ""
