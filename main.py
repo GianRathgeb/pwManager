@@ -1,4 +1,5 @@
 import functions
+import hashlib
 import fileHandlerClasses
 
 #! Key to test: TestKey
@@ -25,8 +26,8 @@ def fnMenu(arrPasswords):
         menu = fnChooseMenu("Please a valid menu! ", m1="Show all passwords", m2 = "Input new Password", m3 = "Delete a Password", m4 = "Exit program")
         if menu == 1:
                 print("\n\n")
-                for i, j in arrPasswords.items():
-                        print(i, j[0])
+                for i, j in enumerate(arrPasswords):
+                        print(i, j[1])
                 print("\n\n")
                 fnReadPasswords()
         elif menu == 2:
@@ -39,21 +40,16 @@ def fnMenu(arrPasswords):
 
         elif menu == 3:
                 print("\n\n")
-                for i, j in arrPasswords.items():
-                        print(i, j[0])
+                for i, j in enumerate(arrPasswords):
+                        print(i, j[1])
                 deletePassword = int(input("Which password do you want to delete? (Use number)\n"))
                 try:
-                        del arrPasswords[deletePassword]
+                        arrPasswords.pop(deletePassword)
                         global keyHash
                         fileWriter.fnRewriteFile(arrPasswords)
                         print("\n\n")
-<<<<<<< HEAD
                         fnReadPasswords()
                 except IndexError:
-=======
-                        fnReadPasswords(strPassword)
-                except KeyError:
->>>>>>> 2a601af386dcd95ec983f015803d053df856d26f
                         print("Please enter a correct password")
                         fnReadPasswords()
         elif menu == 4:
@@ -63,22 +59,7 @@ def fnMenu(arrPasswords):
 def fnReadPasswords():
         global strKey
         fileWriter.fnReadPasswords()
-<<<<<<< HEAD
         fnMenu(fileWriter.tempArr)
-=======
-        dictPassword = {}
-        for i, j in enumerate(fileWriter.arrPasswords):
-                if i > 0:
-                        tempPassword = functions.fnDecryptString(j, strPassword)
-                        dictPassword[i - 1] = [tempPassword, j]
-                else:
-                        global strKey
-                        global keyHash
-                        keyHash = j
-                        if not fileWriter.fnValidateKey(keyHash, strKey):
-                                exit(0)
-        fnMenu(strPassword, dictPassword)
->>>>>>> 2a601af386dcd95ec983f015803d053df856d26f
 
 
 def fnInit():
@@ -93,7 +74,6 @@ def fnInit():
         fnReadPasswords()
 
 
-# Define global variables
 fileWriter = None
 strKey = ""
 keyHash = ""
