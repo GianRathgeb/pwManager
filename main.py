@@ -20,46 +20,41 @@ def fnChooseMenu(strShowError, **kwargs):
                 fnChooseMenu(strShowError, **kwargs)
 
 
-def fnMenu(arrPasswords):
+def fnMenu():
         global fileWriter
+        fileWriter.fnReadPasswords()
         global strKey
         menu = fnChooseMenu("Please a valid menu! ", m1="Show all passwords", m2 = "Input new Password", m3 = "Delete a Password", m4 = "Exit program")
         if menu == 1:
                 print("\n\n")
-                for i, j in enumerate(arrPasswords):
+                for i, j in enumerate(fileWriter.tempArr):
                         print(i, j[1])
                 print("\n\n")
-                fnReadPasswords()
+                fnMenu()
         elif menu == 2:
                 print("\n\n")
                 newPassword = input("Enter a new password:\n")
                 newPassword = functions.fnEncryptString(newPassword, strKey)
                 fileWriter.fnWritePassword(newPassword)
                 print("\n\n")   
-                fnReadPasswords()
+                fnMenu()
 
         elif menu == 3:
                 print("\n\n")
-                for i, j in enumerate(arrPasswords):
+                for i, j in enumerate(fileWriter.tempArr):
                         print(i, j[1])
                 deletePassword = int(input("Which password do you want to delete? (Use number)\n"))
                 try:
-                        arrPasswords.pop(deletePassword)
+                        fileWriter.tempArr.pop(deletePassword)
                         global keyHash
-                        fileWriter.fnRewriteFile(arrPasswords)
+                        fileWriter.fnRewriteFile(fileWriter.tempArr)
                         print("\n\n")
-                        fnReadPasswords()
+                        fnMenu()
                 except IndexError:
                         print("Please enter a correct password")
-                        fnReadPasswords()
+                        fnMenu()
         elif menu == 4:
                 exit()
-
-
-def fnReadPasswords():
-        global strKey
-        fileWriter.fnReadPasswords()
-        fnMenu(fileWriter.tempArr)
 
 
 def fnInit():
@@ -71,7 +66,7 @@ def fnInit():
         global fileWriter
         fileWriter = fileHandlerClasses.FileWriter(strFilePath, strKey)
         print("\n\n\n\n\n\n\n\nPassword Manager by Gian Rathgeb\n\n")
-        fnReadPasswords()
+        fnMenu()
 
 
 fileWriter = None
