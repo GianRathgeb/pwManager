@@ -5,27 +5,27 @@ import fileHandlerClasses
 #! Key to test: TestKey
 
 
-def fnChooseMenu(strShowError, **kwargs):
+def fnPrintMenu(strShowError, **dictMenuItems):
         strShowMenu = ""
-        for key, value in kwargs.items():
+        for key, value in dictMenuItems.items():
                 strShowMenu += f"{key[-1]}: {value}\n"
         try:
                 intUserInput = int(input(strShowMenu))
-                print("Select: " + kwargs["m" + str(intUserInput)])
+                print("Select: " + dictMenuItems["m" + str(intUserInput)])
                 return intUserInput
         except ValueError:
                 print(strShowError)
-                fnChooseMenu(strShowError, **kwargs)
+                fnPrintMenu(strShowError, **dictMenuItems)
         except KeyError:
                 print(strShowError)
-                fnChooseMenu(strShowError, **kwargs)
+                fnPrintMenu(strShowError, **dictMenuItems)
 
 
 def fnMenu():
         global fileWriter
         fileWriter.fnReadPasswords()
         global strKey
-        menu = fnChooseMenu("Please a valid menu! ", m1="Show all passwords", m2 = "Input new Password", m3 = "Delete a Password", m4 = "Exit program")
+        menu = fnPrintMenu("Please a valid menu! ", m1="Show all passwords", m2 = "Input new Password", m3 = "Delete a Password", m4 = "Exit program")
         if menu == 1:
                 print("\n\n")
                 for i, j in enumerate(fileWriter.tempArr):
