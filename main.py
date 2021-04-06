@@ -67,10 +67,13 @@ class PasswordManager:
         
 
 
-
+# Initialize the password manager
 PasswordManager = PasswordManager()
+# Initialize the fileWriter
 fileWriter = fileHandlerClasses.FileWriter(PasswordManager.strFilePath, PasswordManager.strKey)
+# Add the file writer to the password manager (only reference) so that the password manager can work with the file writer
 PasswordManager.addFileWriter(fileWriter)
+
+# loop to print the menu
 while True:
         PasswordManager.fnMenu()
-# TODO: Make the manager should be class based
