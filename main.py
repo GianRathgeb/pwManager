@@ -13,16 +13,16 @@ class PasswordManager:
                 print("\n\n\n\n\n\n\n\nPassword Manager by Gian Rathgeb\n\n")
 
 
-        def createMenu(self, error, **menu):
+        def CreateMenu(self, error, **menu):
                 self.menuError = error
                 self.menuDict = menu
 
 
-        def addFileWriter(self, fileWriter):
+        def AddFileWriter(self, fileWriter):
                 self.referenceFileWriter = fileWriter
 
 
-        def fnPrintMenu(self):
+        def PrintMenu(self):
                 strShowMenu = ""
                 for key, value in self.menuDict.items():
                         strShowMenu += f"{key[-1]}: {value}\n"
@@ -32,12 +32,12 @@ class PasswordManager:
                         return intUserInput
                 except (ValueError, KeyError) as exception:
                         print(self.menuError)
-                        self.fnPrintMenu()
+                        self.PrintMenu()
 
 
-        def fnMenu(self):
+        def MenuHandler(self):
                 self.referenceFileWriter.fnReadPasswords()
-                menu = self.fnPrintMenu()
+                menu = self.PrintMenu()
                 if menu == 1:
                         print("\n\n")
                         for i, j in enumerate(fileWriter.tempArr):
@@ -67,17 +67,15 @@ class PasswordManager:
 
 
         
-
-
 # Initialize the password manager
 PasswordManager = PasswordManager()
 
-PasswordManager.createMenu("Please a valid menu! ", m1="Show all passwords", m2 = "Input new Password", m3 = "Delete a Password", m4 = "Exit program")
+PasswordManager.CreateMenu("Please a valid menu! ", m1="Show all passwords", m2 = "Input new Password", m3 = "Delete a Password", m4 = "Exit program")
 # Initialize the fileWriter
 fileWriter = fileHandlerClasses.FileWriter(PasswordManager.strFilePath, PasswordManager.strKey)
 # Add the file writer to the password manager (only reference) so that the password manager can work with the file writer
-PasswordManager.addFileWriter(fileWriter)
+PasswordManager.AddFileWriter(fileWriter)
 
 # loop to print the menu
 while True:
-        PasswordManager.fnMenu()
+        PasswordManager.MenuHandler()
