@@ -27,9 +27,8 @@ class PasswordManager:
                 for key, value in self.menuDict.items():
                         strShowMenu += f"{key[-1]}: {value}\n"
                 try:
-                        intUserInput = int(input(strShowMenu))
-                        print("Select: " + self.menuDict["m" + str(intUserInput)])
-                        return intUserInput
+                        self.intUserMenuChoice = int(input(strShowMenu))
+                        print("Select: " + self.menuDict["m" + str(self.intUserMenuChoice)])
                 except (ValueError, KeyError) as exception:
                         print(self.menuError)
                         self.PrintMenu()
@@ -37,20 +36,19 @@ class PasswordManager:
 
         def MenuHandler(self):
                 self.referenceFileWriter.fnReadPasswords()
-                menu = self.PrintMenu()
-                if menu == 1:
+                if self.intUserMenuChoice == 1:
                         print("\n\n")
                         for i, j in enumerate(fileWriter.tempArr):
                                 print(i, j[1])
                         print("\n\n")
-                elif menu == 2:
+                elif self.intUserMenuChoice == 2:
                         print("\n\n")
                         newPassword = input("Enter a new password:\n")
                         newPassword = functions.fnEncryptString(newPassword, self.strKey)
                         self.referenceFileWriter.fnWritePassword(newPassword)
                         print("\n\n")   
 
-                elif menu == 3:
+                elif self.intUserMenuChoice == 3:
                         print("\n\n")
                         for i, j in enumerate(fileWriter.tempArr):
                                 print(i, j[1])
@@ -61,7 +59,7 @@ class PasswordManager:
                                 print("\n\n")
                         except IndexError:
                                 print("Please enter a correct password")
-                elif menu == 4:
+                elif self.intUserMenuChoice == 4:
                         exit()
 
 
@@ -78,4 +76,5 @@ PasswordManager.AddFileWriter(fileWriter)
 
 # loop to print the menu
 while True:
+        PasswordManager.PrintMenu()
         PasswordManager.MenuHandler()
