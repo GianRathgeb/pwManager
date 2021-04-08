@@ -29,7 +29,7 @@ class PasswordManager:
                 try:
                         self.intUserMenuChoice = int(input(strShowMenu))
                         print("Select: " + self.menuDict["m" + str(self.intUserMenuChoice)])
-                except (ValueError, KeyError) as exception:
+                except:
                         print(self.menuError)
                         self.PrintMenu()
 
