@@ -54,6 +54,7 @@ def fnMenu():
                 except IndexError:
                         print("Please enter a correct password")
                         fnMenu()
+                        
         elif menu == 4:
                 exit()
 
