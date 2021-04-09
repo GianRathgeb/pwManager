@@ -6,6 +6,7 @@ class FileWriter:
     def __init__(self, fileName, strKey):
         self.strFileName = fileName
         self.strKey = strKey
+        self.kayValidated = False
 
     def fnReadPasswords(self):
         with open(self.strFileName) as csv_file:
@@ -22,9 +23,11 @@ class FileWriter:
                         tempPassword = functions.fnDecryptString(j, self.strKey)
                         self.tempArr.append([j, tempPassword])
                 else:
+                    if not self.kayValidated:
                         self.keyHash = j
                         if not self.fnValidateKey(self.keyHash, self.strKey):
                                 exit(0)
+                        else: self.kayValidated = True
         
 
     def fnWritePassword(self, strPassword):

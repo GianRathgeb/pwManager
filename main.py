@@ -4,76 +4,77 @@ import fileHandlerClasses
 
 #! Key to test: TestKey
 
-
-def fnPrintMenu(strShowError, **dictMenuItems):
-        strShowMenu = ""
-        for key, value in dictMenuItems.items():
-                strShowMenu += f"{key[-1]}: {value}\n"
-        try:
-                intUserInput = int(input(strShowMenu))
-                print("Select: " + dictMenuItems["m" + str(intUserInput)])
-                return intUserInput
-        except ValueError:
-                print(strShowError)
-                fnPrintMenu(strShowError, **dictMenuItems)
-        except KeyError:
-                print(strShowError)
-                fnPrintMenu(strShowError, **dictMenuItems)
+class PasswordManager:
+        def __init__(self):
+                self.strFilePath = input("Enter file name (default: passwords.csv): ")
+                if self.strFilePath == "":
+                        self.strFilePath = "passwords.csv"
+                self.strKey = input("Enter Password to encrypt passwords: ")
+                print("\n\n\n\n\n\n\n\nPassword Manager by Gian Rathgeb\n\n")
 
 
-def fnMenu():
-        global fileWriter
-        fileWriter.fnReadPasswords()
-        global strKey
-        menu = fnPrintMenu("Please a valid menu! ", m1="Show all passwords", m2 = "Input new Password", m3 = "Delete a Password", m4 = "Exit program")
-        if menu == 1:
-                print("\n\n")
-                for i, j in enumerate(fileWriter.tempArr):
-                        print(i, j[1])
-                print("\n\n")
-                fnMenu()
-        elif menu == 2:
-                print("\n\n")
-                newPassword = input("Enter a new password:\n")
-                newPassword = functions.fnEncryptString(newPassword, strKey)
-                fileWriter.fnWritePassword(newPassword)
-                print("\n\n")   
-                fnMenu()
+        def CreateMenu(self, error, **menu):
+                self.menuError = error
+                self.menuDict = menu
 
-        elif menu == 3:
-                print("\n\n")
-                for i, j in enumerate(fileWriter.tempArr):
-                        print(i, j[1])
-                deletePassword = int(input("Which password do you want to delete? (Use number)\n"))
+
+        def AddFileWriter(self, fileWriter):
+                self.referenceFileWriter = fileWriter
+
+
+        def PrintMenu(self):
+                strShowMenu = ""
+                for key, value in self.menuDict.items():
+                        strShowMenu += f"{key[-1]}: {value}\n"
                 try:
-                        fileWriter.tempArr.pop(deletePassword)
-                        global keyHash
-                        fileWriter.fnRewriteFile(fileWriter.tempArr)
+                        self.intUserMenuChoice = int(input(strShowMenu))
+                        print("Select: " + self.menuDict["m" + str(self.intUserMenuChoice)])
+                except:
+                        print(self.menuError)
+                        self.PrintMenu()
+
+
+        def MenuHandler(self):
+                self.referenceFileWriter.fnReadPasswords()
+                if self.intUserMenuChoice == 1:
                         print("\n\n")
-                        fnMenu()
-                except IndexError:
-                        print("Please enter a correct password")
-                        fnMenu()
-                        
-        elif menu == 4:
-                exit()
+                        for i, j in enumerate(fileWriter.tempArr):
+                                print(i, j[1])
+                        print("\n\n")
+                elif self.intUserMenuChoice == 2:
+                        print("\n\n")
+                        newPassword = input("Enter a new password:\n")
+                        newPassword = functions.fnEncryptString(newPassword, self.strKey)
+                        self.referenceFileWriter.fnWritePassword(newPassword)
+                        print("\n\n")   
+
+                elif self.intUserMenuChoice == 3:
+                        print("\n\n")
+                        for i, j in enumerate(fileWriter.tempArr):
+                                print(i, j[1])
+                        deletePassword = int(input("Which password do you want to delete? (Use number)\n"))
+                        try:
+                                self.referenceFileWriter.tempArr.pop(deletePassword)
+                                self.referenceFileWriter.fnRewriteFile(fileWriter.tempArr)
+                                print("\n\n")
+                        except IndexError:
+                                print("Please enter a correct password")
+                elif self.intUserMenuChoice == 4:
+                        exit()
 
 
-def fnInit():
-        strFilePath = input("Enter file name (default: passwords.csv): ")
-        if strFilePath == "":
-                strFilePath = "passwords.csv"
-        global strKey
-        strKey = input("Enter Password to encrypt passwords: ")
-        global fileWriter
-        fileWriter = fileHandlerClasses.FileWriter(strFilePath, strKey)
-        print("\n\n\n\n\n\n\n\nPassword Manager by Gian Rathgeb\n\n")
-        fnMenu()
 
+        
+# Initialize the password manager
+PasswordManager = PasswordManager()
 
-fileWriter = None
-strKey = ""
-keyHash = ""
-fnInit()
+PasswordManager.CreateMenu("Please a valid menu! ", m1="Show all passwords", m2 = "Input new Password", m3 = "Delete a Password", m4 = "Exit program")
+# Initialize the fileWriter
+fileWriter = fileHandlerClasses.FileWriter(PasswordManager.strFilePath, PasswordManager.strKey)
+# Add the file writer to the password manager (only reference) so that the password manager can work with the file writer
+PasswordManager.AddFileWriter(fileWriter)
 
-# TODO: Make the manager should be class based
+# loop to print the menu
+while True:
+        PasswordManager.PrintMenu()
+        PasswordManager.MenuHandler()
