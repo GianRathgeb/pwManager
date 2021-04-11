@@ -1,5 +1,5 @@
 from passwordManagerClass import PasswordManager
-import fileHandlerClasses
+from fileHandlerClasses import FileWriter
 
 #! Key to test: TestKey
 
@@ -9,7 +9,7 @@ PasswordManager = PasswordManager()
 
 PasswordManager.CreateMenu("Please a valid menu! ", m1="Show all passwords", m2 = "Input new Password", m3 = "Delete a Password", m4 = "Exit program")
 # Initialize the fileWriter
-fileWriter = fileHandlerClasses.FileWriter(PasswordManager.strFilePath, PasswordManager.strKey)
+fileWriter = FileWriter(PasswordManager.strFilePath, PasswordManager.strKey)
 # Add the file writer to the password manager (only reference) so that the password manager can work with the file writer
 PasswordManager.AddFileWriter(fileWriter)
 
