@@ -17,3 +17,5 @@ PasswordManager.AddFileWriter(fileWriter)
 while True:
         PasswordManager.PrintMenu()
         PasswordManager.MenuHandler()
+
+# TODO: Add modular menu (menu not defined password manager class), could add menu like create menu
