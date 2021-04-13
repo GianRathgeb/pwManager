@@ -9,6 +9,7 @@ class PasswordManager:
                 if self.strFilePath == "":
                         self.strFilePath = "passwords.csv"
                 self.strKey = input("Enter Password to encrypt passwords: ")
+                self.menuFunctionsDict = {}
                 print("\n\n\n\n\n\n\n\nPassword Manager by Gian Rathgeb\n\n")
 
 
@@ -32,31 +33,11 @@ class PasswordManager:
                         print(self.menuError)
                         self.PrintMenu()
 
+        def AddMenuFunction(self, number, function, arguments):
+                self.menuFunctionsDict[number] = (function, arguments)
 
         def MenuHandler(self):
-                self.referenceFileWriter.fnReadPasswords()
-                if self.intUserMenuChoice == 1:
-                        print("\n\n")
-                        for i, j in enumerate(self.referenceFileWriter.tempArr):
-                                print(i, j[1])
-                        print("\n\n")
-                elif self.intUserMenuChoice == 2:
-                        print("\n\n")
-                        newPassword = input("Enter a new password:\n")
-                        newPassword = functions.fnEncryptString(newPassword, self.strKey)
-                        self.referenceFileWriter.fnWritePassword(newPassword)
-                        print("\n\n")   
-
-                elif self.intUserMenuChoice == 3:
-                        print("\n\n")
-                        for i, j in enumerate(self.referenceFileWriter.tempArr):
-                                print(i, j[1])
-                        deletePassword = int(input("Which password do you want to delete? (Use number)\n"))
-                        try:
-                                self.referenceFileWriter.tempArr.pop(deletePassword)
-                                self.referenceFileWriter.fnRewriteFile(self.referenceFileWriter.tempArr)
-                                print("\n\n")
-                        except IndexError:
-                                print("Please enter a correct password")
-                elif self.intUserMenuChoice == 4:
-                        exit()
+                print(self.menuFunctionsDict, self.intUserMenuChoice)
+                menuChoise = self.intUserMenuChoice
+                self.menuFunctionsDict[menuChoise][0](*self.menuFunctionsDict[menuChoise][1])
+                        

@@ -34,10 +34,10 @@ class FileWriter:
         with open(self.strFileName, mode='a+') as objPasswordFile:
             objPasswordFile.write(f"\n{strPassword}")
 
-    def fnRewriteFile(self, arrPasswords):
+    def fnRewriteFile(self):
         with open(self.strFileName, mode='w') as objPasswordFile:
             strToWrite = f"{self.keyHash}"
-            for i in arrPasswords:
+            for i in self.tempArr:
                 strToWrite += f"\n{i[0]}"
             objPasswordFile.write(strToWrite)
 
