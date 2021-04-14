@@ -34,4 +34,4 @@ while True:
     fileWriter.fnReadPasswords()
 
 
-# TODO: Add modular menu (menu not defined password manager class), could add menu like create menu
+# TODO: The menu is now not working, but a modular menu is added
