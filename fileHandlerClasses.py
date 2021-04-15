@@ -2,6 +2,7 @@ import csv
 import hashlib
 import functions
 
+
 class FileWriter:
     def __init__(self, fileName, strKey):
         self.strFileName = fileName
@@ -19,16 +20,17 @@ class FileWriter:
                     print("No Passwords found in file")
         self.tempArr = []
         for i, j in enumerate(self.arrPasswords):
-                if i > 0:
-                        tempPassword = functions.fnDecryptString(j, self.strKey)
-                        self.tempArr.append([j, tempPassword])
-                else:
-                    if not self.kayValidated:
-                        self.keyHash = j
-                        if not self.fnValidateKey(self.keyHash, self.strKey):
-                                exit(0)
-                        else: self.kayValidated = True
-        
+            if i >= 1:
+                tempPassword = functions.fnDecryptString(j, self.strKey)
+                self.tempArr.append([j, tempPassword])
+            else:
+                if not self.kayValidated:
+                    self.keyHash = j
+                    if not self.fnValidateKey(self.keyHash, self.strKey):
+                        exit(0)
+                    else:
+                        self.kayValidated = True
+
 
     def fnWritePassword(self, strPassword):
         with open(self.strFileName, mode='a+') as objPasswordFile:
@@ -41,11 +43,10 @@ class FileWriter:
                 strToWrite += f"\n{i[0]}"
             objPasswordFile.write(strToWrite)
 
-
     def fnValidateKey(self, encrpytedHash, key):
         strKeyHash = hashlib.sha256(key.encode()).hexdigest()
         strHashToTest = functions.fnEncryptString(strKeyHash, key)
         if encrpytedHash == strHashToTest:
             return True
-        else: 
+        else:
             return False

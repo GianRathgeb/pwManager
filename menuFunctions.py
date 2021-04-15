@@ -1,8 +1,9 @@
 import functions
 
-def fnMenu1(passwordArray):
+
+def fnMenu1(*args):
     print("\n\n")
-    for i, j in enumerate(passwordArray):
+    for i, j in enumerate(args):
         print(i, j[1])
     print("\n\n")
 
@@ -17,6 +18,7 @@ def fnMenu2(encryptionKey, writePasswordFunctionReference):
 
 
 def fnMenu3(passwordArray, rewriteFileFunctionReference):
+    print(passwordArray)
     print("\n\n")
     for i, j in enumerate(passwordArray):
         print(i, j[1])
@@ -28,5 +30,5 @@ def fnMenu3(passwordArray, rewriteFileFunctionReference):
     except IndexError:
         print("Please enter a correct password")
 
-def fnMenu4():
+def fnMenu4(*args):
         exit()

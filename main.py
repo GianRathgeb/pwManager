@@ -14,7 +14,6 @@ fileWriter = FileWriter(PasswordManager.strFilePath, PasswordManager.strKey)
 # Read all passwords to file writer
 fileWriter.fnReadPasswords()
 
-
 # Add the file writer to the password manager (only reference) so that the password manager can work with the file writer
 PasswordManager.AddFileWriter(fileWriter)
 
@@ -34,4 +33,4 @@ while True:
     fileWriter.fnReadPasswords()
 
 
-# TODO: The menu is now not working, but a modular menu is added
+# TODO: Errors in the read and delete function

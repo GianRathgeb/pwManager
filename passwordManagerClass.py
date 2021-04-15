@@ -3,6 +3,7 @@ import hashlib
 import fileHandlerClasses
 
 
+
 class PasswordManager:
         def __init__(self):
                 self.strFilePath = input("Enter file name (default: passwords.csv): ")
@@ -37,7 +38,9 @@ class PasswordManager:
                 self.menuFunctionsDict[number] = (function, arguments)
 
         def MenuHandler(self):
-                print(self.menuFunctionsDict, self.intUserMenuChoice)
-                menuChoise = self.intUserMenuChoice
-                self.menuFunctionsDict[menuChoise][0](*self.menuFunctionsDict[menuChoise][1])
+                menuChoice = self.intUserMenuChoice
+                function = self.menuFunctionsDict[menuChoice][0]
+                arguments = [*self.menuFunctionsDict[menuChoice][1]]
+                function(*arguments)
+
                         
