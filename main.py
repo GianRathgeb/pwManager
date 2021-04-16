@@ -33,4 +33,5 @@ while True:
     fileWriter.fnReadPasswords()
 
 
+
 # TODO: Errors in the read and delete function, possible solution: accept parameters in menu functions as *args
