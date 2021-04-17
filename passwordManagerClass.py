@@ -41,6 +41,7 @@ class PasswordManager:
                 menuChoice = self.intUserMenuChoice
                 function = self.menuFunctionsDict[menuChoice][0]
                 arguments = [*self.menuFunctionsDict[menuChoice][1]]
+                print(arguments)
                 function(*arguments)
 
                         

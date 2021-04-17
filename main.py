@@ -28,10 +28,10 @@ PasswordManager.AddMenuFunction(4, mF.fnMenu4, ())
 
 # loop to print the menu
 while True:
+    fileWriter.fnReadPasswords()
     PasswordManager.PrintMenu()
     PasswordManager.MenuHandler()
-    fileWriter.fnReadPasswords()
 
 
 
-# TODO: Errors in the read and delete function, possible solution: accept parameters in menu functions as *args
+# TODO: The print menu function is not working when new passwords are added, it wont show up, the problem is the fileWriter.tempArr reference
