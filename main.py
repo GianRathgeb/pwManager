@@ -33,5 +33,4 @@ while True:
     PasswordManager.MenuHandler()
 
 
-
 # TODO: The print menu function is not working when new passwords are added, it wont show up, the problem is the fileWriter.tempArr reference
