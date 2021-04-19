@@ -14,8 +14,9 @@ fileWriter = FileWriter(PasswordManager.strFilePath, PasswordManager.strKey)
 # Read all passwords to file writer
 fileWriter.fnReadPasswords()
 
+
 # Add the file writer to the password manager (only reference) so that the password manager can work with the file writer
-PasswordManager.AddFileWriter(fileWriter)
+PasswordManager.UpdateFileHandler(fileWriter)
 
 
 # Add the menu to the password manager
@@ -28,9 +29,15 @@ PasswordManager.AddMenuFunction(4, mF.fnMenu4, ())
 
 # loop to print the menu
 while True:
+    # Read all passwords again
     fileWriter.fnReadPasswords()
+    # Update all the references in the menu (only if needed)
+    PasswordManager.AddMenuFunction(1, mF.fnMenu1, (fileWriter.tempArr))
+    PasswordManager.AddMenuFunction(3, mF.fnMenu3, (fileWriter.tempArr, fileWriter.fnRewriteFile))
+
+    # Print and handle the menu
     PasswordManager.PrintMenu()
     PasswordManager.MenuHandler()
 
 
-# TODO: The print menu function is not working when new passwords are added, it wont show up, the problem is the fileWriter.tempArr reference
+# TODO: The menu shows sometimes "no passwords in file", numbers in passwords do not work

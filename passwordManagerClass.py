@@ -19,8 +19,8 @@ class PasswordManager:
                 self.menuDict = menu
 
 
-        def AddFileWriter(self, fileWriter):
-                self.referenceFileWriter = fileWriter
+        def UpdateFileHandler(self, fileHandler):
+                self.fileHandler = fileHandler
 
 
         def PrintMenu(self):
@@ -41,7 +41,6 @@ class PasswordManager:
                 menuChoice = self.intUserMenuChoice
                 function = self.menuFunctionsDict[menuChoice][0]
                 arguments = [*self.menuFunctionsDict[menuChoice][1]]
-                print(arguments)
                 function(*arguments)
 
                         

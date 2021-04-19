@@ -1,6 +1,6 @@
 import functions
 
-# @param: Array with passwords
+# @param: FileWriter
 def fnMenu1(*args):
     print("\n\n")
     for i, j in enumerate(args):
@@ -15,7 +15,7 @@ def fnMenu2(*args):
     args[1](newPassword)
     print("\n\n")
 
-# @param: Array with passwords, Reference to the rewrite File function
+# @param: FileWriter, Reference to the rewrite File function
 def fnMenu3(*args):
     print("\n\n")
     for i, j in enumerate(args[0]):
