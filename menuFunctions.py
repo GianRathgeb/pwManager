@@ -1,13 +1,13 @@
 import functions
 
-# Args: Array with passwords
+# @param: Array with passwords
 def fnMenu1(*args):
     print("\n\n")
     for i, j in enumerate(args):
         print(i, j[1])
     print("\n\n")
 
-# Args: Encryption Key, Reference to the write Password function
+# @param: Encryption Key, Reference to the write Password function
 def fnMenu2(*args):
     print("\n\n")
     newPassword = input("Enter a new password:\n")
@@ -15,7 +15,7 @@ def fnMenu2(*args):
     args[1](newPassword)
     print("\n\n")
 
-# Args: Array with passwords, Reference to the rewrite File function
+# @param: Array with passwords, Reference to the rewrite File function
 def fnMenu3(*args):
     print("\n\n")
     for i, j in enumerate(args[0]):
@@ -28,6 +28,6 @@ def fnMenu3(*args):
     except IndexError:
         print("Please enter a correct password")
 
-# Args: -
+# @param: -
 def fnMenu4(*args):
         exit()
