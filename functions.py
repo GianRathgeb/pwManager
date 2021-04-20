@@ -1,17 +1,39 @@
 import time
 import hashlib
 
+def isInt(s):
+    try: 
+        int(s)
+        return True
+    except ValueError:
+        return False
+
 def fnEncryptString(strPassword, strKey):
     # Password String to binary string
     strBinaryPW = ''
-    for char in [bin(ord(char)) for char in strPassword]:
-        strBinaryPW += char.replace('0b', '')
+    arrCharsBin = []
+    for char in [char for char in strPassword]:
+        if isInt(char):
+            arrCharsBin.append(bin(int(char)).replace('0b', ''))
+        else:
+            arrCharsBin.append(bin(ord(char)).replace('0b', ''))
+    for charBin in arrCharsBin:
+        strBinaryPW += charBin
+
+
     # Key string to binary string
     strBinaryKey = ''
-    for char in [bin(ord(char)) for char in strKey]:
-        strBinaryKey += char.replace('0b', '')
+    arrCharsBinKey = []
+    for char in [char for char in strKey]:
+        if isInt(char):
+            arrCharsBinKey.append(bin(int(char)).replace('0b', ''))
+        else:
+            arrCharsBinKey.append(bin(ord(char)).replace('0b', ''))
+    for charBin in arrCharsBinKey:
+        strBinaryKey += charBin
     # repeat key until every bit from pw can be xor'ed with the key
     strBinaryKey = (strBinaryKey * (int(len(strBinaryPW)/len(strBinaryKey))+1))[:len(strBinaryPW)]
+
 
     # Perform the binary xor operation
     binBinaryXor = int(strBinaryPW,2) ^ int(strBinaryKey,2)
