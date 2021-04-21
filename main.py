@@ -40,6 +40,6 @@ while True:
     PasswordManager.MenuHandler()
 
 
-# TODO: The menu shows sometimes "no passwords in file", 
+# TODO: The menu shows sometimes "no passwords in file"
 
 # TODO: While changing the encryption function, so that it can handle intergers in passwords, I broke it. Need to fix
