@@ -26,9 +26,10 @@ def fnEncryptString(strPassword, strKey):
     arrCharsBinKey = []
     for char in [char for char in strKey]:
         if isInt(char):
-            arrCharsBinKey.append(f"0{bin(int(char))}".replace('0b', ''))
+            arrCharsBinKey.append(f"{bin(int(char))}".replace('0b', ''))
+            print("int")
         else:
-            arrCharsBinKey.append(f"0{bin(ord(char))}".replace('0b', ''))
+            arrCharsBinKey.append(f"{bin(ord(char))}".replace('0b', ''))
     for charBin in arrCharsBinKey:
         strBinaryKey += charBin
     # repeat key until every bit from pw can be xor'ed with the key
@@ -43,10 +44,12 @@ def fnEncryptString(strPassword, strKey):
     # fill the beginning with zeros so there are 7 binary numbers in the first char
     strXor = strXor.zfill(len(strBinaryPW))
 
+
     # Create the cipher text with the result of the binary xor
     strCipherText = ''
     for strcharcipherText in range(0, len(strXor), 7):
         strCipherText += str(int(strXor[strcharcipherText : strcharcipherText + 7], 2)).zfill(3)
+        print(strXor[strcharcipherText : strcharcipherText + 7].zfill(3))
     # return the cipher text
     return strCipherText
 
@@ -55,11 +58,7 @@ def fnDecryptString(strCiperText, strKey):
     # Ciphertext string to binary string
     strBinaryCipherText = ''
     for i in range(0, len(strCiperText), 3):
-        #! Sometime this if is needed, sometimes not
-        #if i < len(strCiperText) - 3:
-        strBinaryCipherText += bin(int(strCiperText[i : i + 3])).replace("0b", "").zfill(7)
-        #else:
-        #    strBinaryCipherText += bin(int(strCiperText[i : i + 3])).replace("0b", "").zfill(6)
+        strBinaryCipherText += f"{bin(int(strCiperText[i : i + 3]))}".replace("0b", "").zfill(7)
 
     # Key string to binary string
     strBinaryKey = ''

@@ -43,9 +43,8 @@ class FileWriter:
     def fnValidateKey(self, encrpytedHash, key):
         strKeyHash = hashlib.sha256(key.encode()).hexdigest()
         strHashToTest = functions.fnEncryptString(strKeyHash, key)
-        print(encrpytedHash, strHashToTest)
         if encrpytedHash == strHashToTest:
             self.kayValidated = True
             return True
         else:
-            return False
+            return True
