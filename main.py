@@ -4,7 +4,12 @@ import functions
 import menuFunctions as mF
 
 #! Key to test: TestKey
-
+# Code to generate a new key:
+""" 
+import hashlib
+test = hashlib.sha256("key".encode()).hexdigest()
+print(functions.fnEncryptString(test, "TestKey")) 
+"""
 
 # Initialize the password manager
 PasswordManager = PasswordManager()
@@ -42,4 +47,4 @@ while True:
 
 # TODO: The menu shows sometimes "no passwords in file"
 
-# TODO: While changing the encryption function, so that it can handle intergers in passwords, I broke it. Need to fix
+# TODO: The encryption function works, the decryption function is not updated yet

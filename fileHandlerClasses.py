@@ -28,9 +28,6 @@ class FileWriter:
                     self.keyHash = j
                     if not self.fnValidateKey(self.keyHash, self.strKey):
                         exit(0)
-                    else:
-                        self.kayValidated = True
-
 
     def fnWritePassword(self, strPassword):
         with open(self.strFileName, mode='a+') as objPasswordFile:
@@ -48,6 +45,7 @@ class FileWriter:
         strHashToTest = functions.fnEncryptString(strKeyHash, key)
         print(encrpytedHash, strHashToTest)
         if encrpytedHash == strHashToTest:
+            self.kayValidated = True
             return True
         else:
             return False
