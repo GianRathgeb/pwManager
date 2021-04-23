@@ -45,3 +45,5 @@ while True:
     # Print and handle the menu
     PasswordManager.PrintMenu()
     PasswordManager.MenuHandler()
+
+# TODO: Function to change the master password
