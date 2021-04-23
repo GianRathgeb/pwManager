@@ -43,8 +43,3 @@ while True:
     # Print and handle the menu
     PasswordManager.PrintMenu()
     PasswordManager.MenuHandler()
-
-
-# TODO: The menu shows sometimes "no passwords in file"
-
-# TODO: The encryption function works, the decryption function is not updated yet
