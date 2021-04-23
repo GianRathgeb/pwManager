@@ -7,8 +7,9 @@ import menuFunctions as mF
 # Code to generate a new key:
 """ 
 import hashlib
-test = hashlib.sha256("key".encode()).hexdigest()
-print(functions.fnEncryptString(test, "TestKey")) 
+key = "EnterYourKey"
+test = hashlib.sha256(key.encode()).hexdigest()
+print(functions.fnEncryptString(test, key)) 
 """
 
 # Initialize the password manager
