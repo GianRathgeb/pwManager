@@ -5,11 +5,12 @@ import menuFunctions as mF
 
 #! Key to test: TestKey
 # Code to generate a new key:
-""" 
+"""
 import hashlib
-key = "EnterYourKey"
+key = "TestKey"
 test = hashlib.sha256(key.encode()).hexdigest()
 print(functions.fnEncryptString(test, key)) 
+exit()
 """
 
 # Initialize the password manager

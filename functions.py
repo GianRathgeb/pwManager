@@ -42,8 +42,11 @@ def fnEncryptString(strPassword, strKey):
     # Key string to binary string
     strBinaryKey = fnStrToBin(strKey)
     # repeat key until every bit from pw can be xor'ed with the key
-    strBinaryKey = (strBinaryKey * (int(len(strBinaryPW)/len(strBinaryKey))+1))[:len(strBinaryPW)]
-
+    try:
+        strBinaryKey = (strBinaryKey * (int(len(strBinaryPW)/len(strBinaryKey))+1))[:len(strBinaryPW)]
+    except ZeroDivisionError:
+        # happens if no key give
+        exit()
     # Perform the binary xor operation
     strXor = xor(strBinaryPW, strBinaryKey)
 
@@ -64,7 +67,11 @@ def fnDecryptString(strCiperText, strKey):
     # Key string to binary string
     strBinaryKey = fnStrToBin(strKey)
     # repeat key until there is a bit for every bit in the cipher text
-    strBinaryKey = (strBinaryKey * (int(len(strBinaryCipherText)/len(strBinaryKey))+1))[:len(strBinaryCipherText)]
+    try:
+        strBinaryKey = (strBinaryKey * (int(len(strBinaryCipherText)/len(strBinaryKey))+1))[:len(strBinaryCipherText)]
+    except ZeroDivisionError:
+        # happens if no key give
+        exit()
 
 
     # perform the xor operation

@@ -29,9 +29,10 @@ class FileWriter:
                     if not self.fnValidateKey(self.keyHash, self.strKey):
                         exit(0)
 
-    def fnWritePassword(self, strPassword):
+    def fnWritePassword(self, arrPasswords):
         with open(self.strFileName, mode='a+') as objPasswordFile:
-            objPasswordFile.write(f"\n{strPassword}")
+            for password in arrPasswords:
+                objPasswordFile.write(f"\n{password}")
 
     def fnRewriteFile(self):
         with open(self.strFileName, mode='w') as objPasswordFile:
@@ -47,4 +48,4 @@ class FileWriter:
             self.kayValidated = True
             return True
         else:
-            return True
+            return False

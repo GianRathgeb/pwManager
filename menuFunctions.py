@@ -10,9 +10,11 @@ def fnMenu1(*args):
 # @param: Encryption Key, Reference to the write Password function
 def fnMenu2(*args):
     print("\n\n")
-    newPassword = input("Enter a new password:\n")
-    newPassword = functions.fnEncryptString(newPassword, args[0])
-    args[1](newPassword)
+    userInput = input("Enter a new password: (multiple passwords separated with ;)\n")
+    arrPasswords = []
+    for password in userInput.split(";"):
+        arrPasswords.append(functions.fnEncryptString(password, args[0]))
+    args[1](arrPasswords)
     print("\n\n")
 
 # @param: FileWriter, Reference to the rewrite File function
