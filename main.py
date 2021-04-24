@@ -2,6 +2,7 @@ from passwordManagerClass import PasswordManager
 from fileHandlerClasses import FileWriter
 import functions
 import menuFunctions as mF
+from gui import Ui_Dialog
 
 #! Key to test: TestKey
 # Code to generate a new key:
