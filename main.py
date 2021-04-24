@@ -47,3 +47,4 @@ while True:
     PasswordManager.MenuHandler()
 
 # TODO: Function to change the master password
+# TODO: Add PyQt5 GUI
