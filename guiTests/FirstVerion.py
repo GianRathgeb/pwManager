@@ -11,31 +11,66 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Dialog(object):
-    def setupUi(self, Dialog):
-        Dialog.setObjectName("Dialog")
-        Dialog.resize(400, 300)
-        self.buttonBox = QtWidgets.QDialogButtonBox(Dialog)
-        self.buttonBox.setGeometry(QtCore.QRect(30, 240, 341, 32))
-        self.buttonBox.setOrientation(QtCore.Qt.Horizontal)
-        self.buttonBox.setStandardButtons(QtWidgets.QDialogButtonBox.Cancel|QtWidgets.QDialogButtonBox.Ok)
-        self.buttonBox.setObjectName("buttonBox")
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(800, 600)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.btnClose = QtWidgets.QPushButton(self.centralwidget)
+        self.btnClose.setGeometry(QtCore.QRect(750, 0, 41, 23))
+        self.btnClose.setObjectName("btnClose")
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 21))
+        self.menubar.setObjectName("menubar")
+        self.menuFile = QtWidgets.QMenu(self.menubar)
+        self.menuFile.setObjectName("menuFile")
+        self.menuEdit = QtWidgets.QMenu(self.menubar)
+        self.menuEdit.setObjectName("menuEdit")
+        self.menuHelp = QtWidgets.QMenu(self.menubar)
+        self.menuHelp.setObjectName("menuHelp")
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+        self.actionOpen_File = QtWidgets.QAction(MainWindow)
+        self.actionOpen_File.setObjectName("actionOpen_File")
+        self.actionEnter_New_Password = QtWidgets.QAction(MainWindow)
+        self.actionEnter_New_Password.setObjectName("actionEnter_New_Password")
+        self.actionDelete_password = QtWidgets.QAction(MainWindow)
+        self.actionDelete_password.setObjectName("actionDelete_password")
+        self.actionInfo = QtWidgets.QAction(MainWindow)
+        self.actionInfo.setObjectName("actionInfo")
+        self.menuFile.addAction(self.actionOpen_File)
+        self.menuEdit.addAction(self.actionEnter_New_Password)
+        self.menuEdit.addAction(self.actionDelete_password)
+        self.menuHelp.addAction(self.actionInfo)
+        self.menubar.addAction(self.menuFile.menuAction())
+        self.menubar.addAction(self.menuEdit.menuAction())
+        self.menubar.addAction(self.menuHelp.menuAction())
 
-        self.retranslateUi(Dialog)
-        self.buttonBox.accepted.connect(Dialog.accept)
-        self.buttonBox.rejected.connect(Dialog.reject)
-        QtCore.QMetaObject.connectSlotsByName(Dialog)
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, Dialog):
+    def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Password Manager"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.btnClose.setText(_translate("MainWindow", "Exit"))
+        self.menuFile.setTitle(_translate("MainWindow", "File"))
+        self.menuEdit.setTitle(_translate("MainWindow", "Edit"))
+        self.menuHelp.setTitle(_translate("MainWindow", "Help"))
+        self.actionOpen_File.setText(_translate("MainWindow", "Open File"))
+        self.actionEnter_New_Password.setText(_translate("MainWindow", "Add password"))
+        self.actionDelete_password.setText(_translate("MainWindow", "Delete password"))
+        self.actionInfo.setText(_translate("MainWindow", "Info"))
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
-    Dialog = QtWidgets.QDialog()
-    ui = Ui_Dialog()
-    ui.setupUi(Dialog)
-    Dialog.show()
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
     sys.exit(app.exec_())
