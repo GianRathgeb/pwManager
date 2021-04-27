@@ -1,1 +1,0 @@
-pyuic5 -x .\FirstVersion.ui -o FirstVerion.py
