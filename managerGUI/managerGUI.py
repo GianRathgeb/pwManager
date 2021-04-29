@@ -5,6 +5,7 @@ from PyQt5 import *
 from PyQt5.QtCore import *
 from FirstVersion import *
 
+from functions import *
 
 if __name__ == "__main__":
     # Setup the UI
@@ -16,6 +17,7 @@ if __name__ == "__main__":
 
     # Configure the UI
     MainWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+    ui.btn_close.clicked.connect(lambda: close_program(MainWindow))
 
     # Show the UI
     MainWindow.show()
