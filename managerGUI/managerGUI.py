@@ -7,6 +7,8 @@ from FirstVersion import *
 
 from functions import *
 
+# TODO: Implement a better resize function (which resizes everything)
+
 if __name__ == "__main__":
     # Setup the UI
     import sys
@@ -17,7 +19,9 @@ if __name__ == "__main__":
 
     # Configure the UI
     MainWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-    ui.btn_close.clicked.connect(lambda: close_program(MainWindow))
+    ui.btn_close.clicked.connect(MainWindow.close)
+    ui.btn_maximize_restore.clicked.connect(lambda: maximise_window(MainWindow))
+    ui.btn_minimize.clicked.connect(MainWindow.showMinimized)
 
     # Show the UI
     MainWindow.show()

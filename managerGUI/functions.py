@@ -4,6 +4,8 @@ from FirstVersion import *
 import sys
 
 
-def close_program(ui):
-    ui.close()
-    sys.exit()
+def maximise_window(ui):
+    if ui.isMaximized():
+        ui.showNormal()
+    else:
+        ui.showMaximized()
