@@ -9,6 +9,7 @@ from functions import *
 
 # TODO: Implement a better resize function (which resizes everything)
 
+
 if __name__ == "__main__":
     # Setup the UI
     import sys
