@@ -2,7 +2,9 @@ from passwordManagerClass import PasswordManager
 from fileHandlerClasses import FileWriter
 import functions
 import menuFunctions as mF
-from gui import Ui_Dialog
+
+# Update the requirements file:
+# pip freeze > requirements.txt
 
 #! Key to test: TestKey
 # Code to generate a new key:
