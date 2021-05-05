@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUIdLjStk.ui'
+## Form generated from reading UI file 'GUIRtvasT.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -691,6 +691,13 @@ class Ui_MainWindow(object):
 
         self.table_view_your_passwords = QTableView(self.page_home)
         self.table_view_your_passwords.setObjectName(u"table_view_your_passwords")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.MinimumExpanding)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.table_view_your_passwords.sizePolicy().hasHeightForWidth())
+        self.table_view_your_passwords.setSizePolicy(sizePolicy4)
+        self.table_view_your_passwords.horizontalHeader().setVisible(False)
+        self.table_view_your_passwords.verticalHeader().setVisible(False)
 
         self.verticalLayout_10.addWidget(self.table_view_your_passwords)
 
