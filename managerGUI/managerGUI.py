@@ -1,5 +1,5 @@
-# Color picker: https://material.io/design/color/the-color-system.html#tools-for-picking-colors
-# Color: #300079
+# Credit to Wanderson Magalhaes
+# https://github.com/Wanderson-Magalhaes/Simple_PySide_Base
 
 
 import sys
