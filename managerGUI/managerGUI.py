@@ -34,7 +34,7 @@ class MainWindow(QMainWindow):
         self.ui.stackedWidget.setMinimumWidth(20)
         UIFunctions.addNewMenu(self, "HOME", "btn_home",
                                "url(:/16x16/icons/16x16/cil-home.png)", True)
-        UIFunctions.addNewMenu(self, "Add User", "btn_new_user",
+        UIFunctions.addNewMenu(self, "Add Password", "btn_new_password",
                                "url(:/16x16/icons/16x16/cil-user-follow.png)", True)
         UIFunctions.addNewMenu(self, "Custom Widgets", "btn_widgets",
                                "url(:/16x16/icons/16x16/cil-equalizer.png)", False)
@@ -71,11 +71,11 @@ class MainWindow(QMainWindow):
             btnWidget.setStyleSheet(
                 UIFunctions.selectMenu(btnWidget.styleSheet()))
 
-        # PAGE NEW USER
-        if btnWidget.objectName() == "btn_new_user":
+        # PAGE NEW PASSWORD
+        if btnWidget.objectName() == "btn_new_password":
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
-            UIFunctions.resetStyle(self, "btn_new_user")
-            UIFunctions.labelPage(self, "New User")
+            UIFunctions.resetStyle(self, "btn_new_password")
+            UIFunctions.labelPage(self, "New Password")
             btnWidget.setStyleSheet(
                 UIFunctions.selectMenu(btnWidget.styleSheet()))
 
@@ -121,4 +121,5 @@ if __name__ == "__main__":
     QtGui.QFontDatabase.addApplicationFont('fonts/segoeui.ttf')
     QtGui.QFontDatabase.addApplicationFont('fonts/segoeuib.ttf')
     window = MainWindow()
+    window.show()
     sys.exit(app.exec_())
