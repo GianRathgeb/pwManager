@@ -1446,49 +1446,6 @@ QPushButton:pressed {
               <property name="bottomMargin">
                <number>25</number>
               </property>
-              <item alignment="Qt::AlignHCenter">
-               <widget class="QLabel" name="label_user_icon">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="minimumSize">
-                 <size>
-                  <width>60</width>
-                  <height>60</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>60</width>
-                  <height>60</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>Segoe UI</family>
-                  <pointsize>12</pointsize>
-                 </font>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true">QLabel {
-	border-radius: 30px;
-	background-color: rgb(44, 49, 60);
-	border: 5px solid rgb(39, 44, 54);
-	background-position: center;
-	background-repeat: no-repeat;
-}</string>
-                </property>
-                <property name="text">
-                 <string>PW</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignCenter</set>
-                </property>
-               </widget>
-              </item>
              </layout>
             </widget>
            </item>
@@ -1681,6 +1638,29 @@ QPushButton:pressed {
                   <number>0</number>
                  </property>
                 </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_size_grip">
+                <property name="maximumSize">
+                 <size>
+                  <width>20</width>
+                  <height>20</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QSizeGrip {
+	background-image: url(:/16x16/icons/16x16/cil-size-grip.png);
+	background-position: center;
+	background-repeat: no-reperat;
+}</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::NoFrame</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
                </widget>
               </item>
              </layout>
