@@ -1565,6 +1565,36 @@ QPushButton:pressed {
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="styleSheet">
+                       <string notr="true">QTableView
+{
+    color: blue;
+    border: 1px transparent rgb(98, 103, 111);
+    background: transparent;
+}
+QTableView::item
+{
+	color: white;
+	border-style: none;
+    border-bottom: 1px solid rgb(0,0,0);
+	border-right: 1px solid rgb(0,0,0);
+}
+QTableView::item:focus
+{
+	selection-background-color: rgba(83, 92, 110, 200);
+	border: 1px solid white;
+}
+</string>
+                      </property>
+                      <property name="frameShape">
+                       <enum>QFrame::StyledPanel</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Sunken</enum>
+                      </property>
+                      <property name="lineWidth">
+                       <number>1</number>
+                      </property>
                       <attribute name="horizontalHeaderVisible">
                        <bool>false</bool>
                       </attribute>

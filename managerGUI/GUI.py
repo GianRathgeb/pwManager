@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUIRtvasT.ui'
+## Form generated from reading UI file 'GUIihmcFY.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -696,6 +696,28 @@ class Ui_MainWindow(object):
         sizePolicy4.setVerticalStretch(0)
         sizePolicy4.setHeightForWidth(self.table_view_your_passwords.sizePolicy().hasHeightForWidth())
         self.table_view_your_passwords.setSizePolicy(sizePolicy4)
+        self.table_view_your_passwords.setStyleSheet(u"QTableView\n"
+"{\n"
+"    color: blue;\n"
+"    border: 1px transparent rgb(98, 103, 111);\n"
+"    background: transparent;\n"
+"}\n"
+"QTableView::item\n"
+"{\n"
+"	color: white;\n"
+"	border-style: none;\n"
+"    border-bottom: 1px solid rgb(0,0,0);\n"
+"	border-right: 1px solid rgb(0,0,0);\n"
+"}\n"
+"QTableView::item:focus\n"
+"{\n"
+"	selection-background-color: rgba(83, 92, 110, 200);\n"
+"	border: 1px solid white;\n"
+"}\n"
+"")
+        self.table_view_your_passwords.setFrameShape(QFrame.StyledPanel)
+        self.table_view_your_passwords.setFrameShadow(QFrame.Sunken)
+        self.table_view_your_passwords.setLineWidth(1)
         self.table_view_your_passwords.horizontalHeader().setVisible(False)
         self.table_view_your_passwords.verticalHeader().setVisible(False)
 

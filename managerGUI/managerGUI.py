@@ -25,7 +25,7 @@ class MainWindow(QMainWindow):
         UIFunctions.removeTitleBar(True)
         self.setWindowTitle('Password Manager - Gian Rathgeb')
         UIFunctions.labelTitle(self, 'Password Manager - Gian Rathgeb')
-        UIFunctions.labelDescription(self, 'Set text')
+        UIFunctions.labelDescription(self, '')
 
         startSize = QSize(1000, 720)
         self.resize(startSize)
@@ -43,6 +43,7 @@ class MainWindow(QMainWindow):
 
         UIFunctions.selectStandardMenu(self, "btn_home")
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
+
 
         def moveWindow(event):
             # IF MAXIMIZED CHANGE TO NORMAL
@@ -124,6 +125,7 @@ class MainWindow(QMainWindow):
 
         self.model = TableModel(data)
         self.ui.table_view_your_passwords.setModel(self.model)
+        self.ui.table_view_your_passwords.horizontalHeader().setStretchLastSection(True) 
 
 
 
