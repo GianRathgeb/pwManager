@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'FirstVersionmgJvBo.ui'
+## Form generated from reading UI file 'GUIdLjStk.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -130,9 +130,12 @@ class Ui_MainWindow(object):
         self.centralwidget.setObjectName(u"centralwidget")
         self.centralwidget.setStyleSheet(u"background: transparent;\n"
 "color: rgb(210, 210, 210);")
+        self.horizontalLayout = QHBoxLayout(self.centralwidget)
+        self.horizontalLayout.setSpacing(0)
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.horizontalLayout.setContentsMargins(10, 10, 10, 10)
         self.frame_main = QFrame(self.centralwidget)
         self.frame_main.setObjectName(u"frame_main")
-        self.frame_main.setGeometry(QRect(0, 0, 1001, 721))
         self.frame_main.setStyleSheet(u"/* LINE EDIT */\n"
 "QLineEdit {\n"
 "	background-color: rgb(27, 29, 35);\n"
@@ -686,21 +689,40 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_10.addWidget(self.label)
 
-        self.label_7 = QLabel(self.page_home)
-        self.label_7.setObjectName(u"label_7")
-        font6 = QFont()
-        font6.setFamily(u"Segoe UI")
-        font6.setPointSize(15)
-        self.label_7.setFont(font6)
-        self.label_7.setAlignment(Qt.AlignCenter)
+        self.table_view_your_passwords = QTableView(self.page_home)
+        self.table_view_your_passwords.setObjectName(u"table_view_your_passwords")
 
-        self.verticalLayout_10.addWidget(self.label_7)
+        self.verticalLayout_10.addWidget(self.table_view_your_passwords)
 
         self.stackedWidget.addWidget(self.page_home)
         self.page_widgets = QWidget()
         self.page_widgets.setObjectName(u"page_widgets")
         self.verticalLayout_6 = QVBoxLayout(self.page_widgets)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.frame = QFrame(self.page_widgets)
+        self.frame.setObjectName(u"frame")
+        self.frame.setStyleSheet(u"border-radius: 5px;")
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_15 = QVBoxLayout(self.frame)
+        self.verticalLayout_15.setSpacing(0)
+        self.verticalLayout_15.setObjectName(u"verticalLayout_15")
+        self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
+
+        self.verticalLayout_6.addWidget(self.frame)
+
+        self.frame_3 = QFrame(self.page_widgets)
+        self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setMinimumSize(QSize(0, 150))
+        self.frame_3.setFrameShape(QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_12 = QHBoxLayout(self.frame_3)
+        self.horizontalLayout_12.setSpacing(0)
+        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
+        self.horizontalLayout_12.setContentsMargins(0, 0, 0, 0)
+
+        self.verticalLayout_6.addWidget(self.frame_3)
+
         self.stackedWidget.addWidget(self.page_widgets)
 
         self.verticalLayout_9.addWidget(self.stackedWidget)
@@ -727,6 +749,22 @@ class Ui_MainWindow(object):
         self.horizontalLayout_7.setSpacing(0)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.horizontalLayout_7.setContentsMargins(10, 0, 10, 0)
+        self.label_credits = QLabel(self.frame_label_bottom)
+        self.label_credits.setObjectName(u"label_credits")
+        self.label_credits.setFont(font2)
+        self.label_credits.setStyleSheet(u"color: rgb(98, 103, 111);")
+
+        self.horizontalLayout_7.addWidget(self.label_credits)
+
+        self.label_version = QLabel(self.frame_label_bottom)
+        self.label_version.setObjectName(u"label_version")
+        self.label_version.setMaximumSize(QSize(100, 16777215))
+        self.label_version.setFont(font2)
+        self.label_version.setStyleSheet(u"color: rgb(98, 103, 111);")
+        self.label_version.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout_7.addWidget(self.label_version)
+
 
         self.horizontalLayout_6.addWidget(self.frame_label_bottom)
 
@@ -752,7 +790,13 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.frame_center)
 
+
+        self.horizontalLayout.addWidget(self.frame_main)
+
         MainWindow.setCentralWidget(self.centralwidget)
+        QWidget.setTabOrder(self.btn_minimize, self.btn_maximize_restore)
+        QWidget.setTabOrder(self.btn_maximize_restore, self.btn_close)
+        QWidget.setTabOrder(self.btn_close, self.btn_toggle_menu)
 
         self.retranslateUi(MainWindow)
 
@@ -765,7 +809,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.btn_toggle_menu.setText("")
-        self.label_title_bar_top.setText(QCoreApplication.translate("MainWindow", u"Main Menu", None))
+        self.label_title_bar_top.setText(QCoreApplication.translate("MainWindow", u"Password Manager", None))
 #if QT_CONFIG(tooltip)
         self.btn_minimize.setToolTip(QCoreApplication.translate("MainWindow", u"Minimize", None))
 #endif // QT_CONFIG(tooltip)
@@ -778,10 +822,11 @@ class Ui_MainWindow(object):
         self.btn_close.setToolTip(QCoreApplication.translate("MainWindow", u"Close", None))
 #endif // QT_CONFIG(tooltip)
         self.btn_close.setText("")
-        self.label_top_info_1.setText(QCoreApplication.translate("MainWindow", u"Placeholder", None))
+        self.label_top_info_1.setText("")
         self.label_top_info_2.setText(QCoreApplication.translate("MainWindow", u"| HOME", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Password Manager", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"By Gian Rathgeb", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Page Index 0", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Your Passwords", None))
+        self.label_credits.setText(QCoreApplication.translate("MainWindow", u"Gian Rathgeb", None))
+        self.label_version.setText(QCoreApplication.translate("MainWindow", u"v1.0.0", None))
     # retranslateUi
 

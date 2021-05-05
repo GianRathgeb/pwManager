@@ -5,8 +5,10 @@
 import sys
 import platform
 from PySide2 import QtCore, QtGui, QtWidgets
-from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime, QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
-from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
+from PySide2.QtCore import (QCoreApplication, QPropertyAnimation, QDate, QDateTime,
+                            QMetaObject, QObject, QPoint, QRect, QSize, QTime, QUrl, Qt, QEvent)
+from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFontDatabase,
+                           QIcon, QKeySequence, QLinearGradient, QPalette, QPainter, QPixmap, QRadialGradient)
 from PySide2.QtWidgets import *
 
 from managerModules import *
@@ -42,7 +44,6 @@ class MainWindow(QMainWindow):
         UIFunctions.selectStandardMenu(self, "btn_home")
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
 
-
         def moveWindow(event):
             # IF MAXIMIZED CHANGE TO NORMAL
             if UIFunctions.returStatus() == 1:
@@ -56,8 +57,7 @@ class MainWindow(QMainWindow):
 
         self.ui.frame_label_top_btns.mouseMoveEvent = moveWindow
         UIFunctions.uiDefinitions(self)
-
-
+        self.show()
 
     def Button(self):
         # GET BT CLICKED
@@ -87,11 +87,9 @@ class MainWindow(QMainWindow):
             btnWidget.setStyleSheet(
                 UIFunctions.selectMenu(btnWidget.styleSheet()))
 
-
     def eventFilter(self, watched, event):
         if watched == self.le and event.type() == QtCore.QEvent.MouseButtonDblClick:
             print("pos: ", event.pos())
-
 
     def mousePressEvent(self, event):
         self.dragPos = event.globalPos()
@@ -102,18 +100,31 @@ class MainWindow(QMainWindow):
         if event.buttons() == Qt.MidButton:
             print('Mouse click: MIDDLE BUTTON')
 
-
     def keyPressEvent(self, event):
-        print('Key: ' + str(event.key()) + ' | Text Press: ' + str(event.text()))
-
+        print('Key: ' + str(event.key()) +
+              ' | Text Press: ' + str(event.text()))
 
     def resizeEvent(self, event):
         self.resizeFunction()
         return super(MainWindow, self).resizeEvent(event)
 
-        def resizeFunction(self):
-            print('Height: ' + str(self.height()) +
-                ' | Width: ' + str(self.width()))
+    def resizeFunction(self):
+        print('Height: ' + str(self.height()) +
+              ' | Width: ' + str(self.width()))
+
+    def showPasswords(self):
+        data = [
+            [4, 9, 2],
+            [1, 0, 0],
+            [3, 5, 0],
+            [3, 3, 2],
+            [7, 8, 9],
+        ]
+
+
+        self.model = TableModel(data)
+        self.ui.table_view_your_passwords.setModel(self.model)
+
 
 
 if __name__ == "__main__":
@@ -121,5 +132,5 @@ if __name__ == "__main__":
     QtGui.QFontDatabase.addApplicationFont('fonts/segoeui.ttf')
     QtGui.QFontDatabase.addApplicationFont('fonts/segoeuib.ttf')
     window = MainWindow()
-    window.show()
+    window.showPasswords()
     sys.exit(app.exec_())
