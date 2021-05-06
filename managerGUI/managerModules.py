@@ -4,7 +4,10 @@ from GUI import *
 # IMPORT QSS CUSTOM
 from ui_styles import Style
 
-## ==> APP FUNCTIONS
+## ==> MANAGER FUNCTIONS
+from functionsGUI import *
+
+# FUNCTIONS
 from functions import *
 
 # TABLE MODEL
