@@ -1,5 +1,5 @@
 # imports
-from managerGUI import *
+from main import *
 
 # ==> GLOBALS
 GLOBAL_STATE = 0
