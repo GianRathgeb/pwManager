@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUIihmcFY.ui'
+## Form generated from reading UI file 'GUIJaBaDO.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -724,35 +724,121 @@ class Ui_MainWindow(object):
         self.verticalLayout_10.addWidget(self.table_view_your_passwords)
 
         self.stackedWidget.addWidget(self.page_home)
-        self.page_widgets = QWidget()
-        self.page_widgets.setObjectName(u"page_widgets")
-        self.verticalLayout_6 = QVBoxLayout(self.page_widgets)
+        self.page_add_password = QWidget()
+        self.page_add_password.setObjectName(u"page_add_password")
+        self.verticalLayout_6 = QVBoxLayout(self.page_add_password)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.frame = QFrame(self.page_widgets)
-        self.frame.setObjectName(u"frame")
-        self.frame.setStyleSheet(u"border-radius: 5px;")
-        self.frame.setFrameShape(QFrame.StyledPanel)
-        self.frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_15 = QVBoxLayout(self.frame)
-        self.verticalLayout_15.setSpacing(0)
-        self.verticalLayout_15.setObjectName(u"verticalLayout_15")
-        self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
+        self.label_2 = QLabel(self.page_add_password)
+        self.label_2.setObjectName(u"label_2")
+        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
+        self.label_2.setSizePolicy(sizePolicy5)
+        self.label_2.setFont(font4)
+        self.label_2.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_6.addWidget(self.frame)
+        self.verticalLayout_6.addWidget(self.label_2)
 
-        self.frame_3 = QFrame(self.page_widgets)
-        self.frame_3.setObjectName(u"frame_3")
-        self.frame_3.setMinimumSize(QSize(0, 150))
-        self.frame_3.setFrameShape(QFrame.StyledPanel)
-        self.frame_3.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_12 = QHBoxLayout(self.frame_3)
-        self.horizontalLayout_12.setSpacing(0)
-        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
-        self.horizontalLayout_12.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout = QGridLayout()
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.btn_password_add = QPushButton(self.page_add_password)
+        self.btn_password_add.setObjectName(u"btn_password_add")
+        sizePolicy6 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.btn_password_add.sizePolicy().hasHeightForWidth())
+        self.btn_password_add.setSizePolicy(sizePolicy6)
+        self.btn_password_add.setMinimumSize(QSize(0, 15))
+        self.btn_password_add.setFont(font2)
+        self.btn_password_add.setLayoutDirection(Qt.LeftToRight)
+        self.btn_password_add.setStyleSheet(u"QPushButton {\n"
+"\n"
+"	background-image: url(:/20x20/icons/20x20/cil-save.png);\n"
+"	background-position: center;\n"
+"	background-repeat: no-reperat;\n"
+"	border: none;\n"
+"	background-color: rgb(27, 29, 35, 0);\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(33, 37, 43);\n"
+"}\n"
+"QPushButton:pressed {	\n"
+"	background-color: rgb(85, 170, 255);\n"
+"}")
 
-        self.verticalLayout_6.addWidget(self.frame_3)
+        self.gridLayout.addWidget(self.btn_password_add, 2, 0, 1, 1)
 
-        self.stackedWidget.addWidget(self.page_widgets)
+        self.txt_password_name = QLineEdit(self.page_add_password)
+        self.txt_password_name.setObjectName(u"txt_password_name")
+        self.txt_password_name.setFont(font2)
+        self.txt_password_name.setStyleSheet(u"border-color: rgb(220, 220, 220);")
+
+        self.gridLayout.addWidget(self.txt_password_name, 0, 1, 1, 1)
+
+        self.txt_password = QLineEdit(self.page_add_password)
+        self.txt_password.setObjectName(u"txt_password")
+        self.txt_password.setFont(font2)
+        self.txt_password.setStyleSheet(u"border-color: rgb(220, 220, 220);")
+
+        self.gridLayout.addWidget(self.txt_password, 1, 1, 1, 1)
+
+        self.horizontalLayout_9 = QHBoxLayout()
+        self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
+        self.btn_password_abort = QPushButton(self.page_add_password)
+        self.btn_password_abort.setObjectName(u"btn_password_abort")
+        sizePolicy6.setHeightForWidth(self.btn_password_abort.sizePolicy().hasHeightForWidth())
+        self.btn_password_abort.setSizePolicy(sizePolicy6)
+        self.btn_password_abort.setFont(font2)
+        self.btn_password_abort.setStyleSheet(u"QPushButton {\n"
+"	background-image: url(:/20x20/icons/20x20/cil-x-circle.png);\n"
+"	background-position: center;\n"
+"	background-repeat: no-reperat;\n"
+"	border: none;\n"
+"	background-color: rgb(27, 29, 35, 0);\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(33, 37, 43);\n"
+"}\n"
+"QPushButton:pressed {	\n"
+"	background-color: rgb(85, 170, 255);\n"
+"}")
+
+        self.horizontalLayout_9.addWidget(self.btn_password_abort)
+
+        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.horizontalLayout_9.addItem(self.horizontalSpacer)
+
+
+        self.gridLayout.addLayout(self.horizontalLayout_9, 2, 1, 1, 1)
+
+        self.label_4 = QLabel(self.page_add_password)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setFont(font)
+
+        self.gridLayout.addWidget(self.label_4, 1, 0, 1, 1)
+
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout.addItem(self.verticalSpacer_2, 4, 0, 1, 1)
+
+        self.label_3 = QLabel(self.page_add_password)
+        self.label_3.setObjectName(u"label_3")
+        sizePolicy3.setHeightForWidth(self.label_3.sizePolicy().hasHeightForWidth())
+        self.label_3.setSizePolicy(sizePolicy3)
+        self.label_3.setFont(font)
+
+        self.gridLayout.addWidget(self.label_3, 0, 0, 1, 1)
+
+        self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Fixed)
+
+        self.gridLayout.addItem(self.verticalSpacer, 3, 0, 1, 1)
+
+
+        self.verticalLayout_6.addLayout(self.gridLayout)
+
+        self.stackedWidget.addWidget(self.page_add_password)
 
         self.verticalLayout_9.addWidget(self.stackedWidget)
 
@@ -829,7 +915,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -855,6 +941,13 @@ class Ui_MainWindow(object):
         self.label_top_info_2.setText(QCoreApplication.translate("MainWindow", u"| HOME", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Password Manager", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Your Passwords", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Add a Password", None))
+        self.btn_password_add.setText("")
+        self.txt_password_name.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Name", None))
+        self.txt_password.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password", None))
+        self.btn_password_abort.setText("")
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"Password", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Password Name", None))
         self.label_credits.setText(QCoreApplication.translate("MainWindow", u"Gian Rathgeb", None))
         self.label_version.setText(QCoreApplication.translate("MainWindow", u"v1.0.0", None))
     # retranslateUi

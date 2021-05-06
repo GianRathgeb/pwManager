@@ -27,10 +27,11 @@ class MainWindow(QMainWindow):
         UIFunctions.addNewMenu(self, "Add Password", "btn_new_password",
                                "url(:/16x16/icons/16x16/cil-user-follow.png)", True)
         UIFunctions.addNewMenu(self, "Custom Widgets", "btn_widgets",
-                               "url(:/16x16/icons/16x16/cil-equalizer.png)", False)
+                               "url(:/16x16/icons/16x16/cil-settings.png)", False)
 
         UIFunctions.selectStandardMenu(self, "btn_home")
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
+        self.ui.btn_password_add.clicked.connect(self.functionsObject.fn)
 
         def moveWindow(event):
             # IF MAXIMIZED CHANGE TO NORMAL
@@ -61,7 +62,7 @@ class MainWindow(QMainWindow):
 
         # PAGE NEW PASSWORD
         if btnWidget.objectName() == "btn_new_password":
-            self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
+            self.ui.stackedWidget.setCurrentWidget(self.ui.page_add_password)
             UIFunctions.resetStyle(self, "btn_new_password")
             UIFunctions.labelPage(self, "New Password")
             btnWidget.setStyleSheet(
@@ -100,12 +101,16 @@ class MainWindow(QMainWindow):
         print('Height: ' + str(self.height()) +
               ' | Width: ' + str(self.width()))
 
+    def addFunctionsObject(self, fnObject):
+        self.functionsObject = fnObject
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     QtGui.QFontDatabase.addApplicationFont('fonts/segoeui.ttf')
     QtGui.QFontDatabase.addApplicationFont('fonts/segoeuib.ttf')
     window = MainWindow()
-    functions = Functions(window.ui)
+    # TODO: Functions to input the key
+    functions = Functions(window.ui, "passwords.csv", "TestKey")
+    window.addFunctionsObject(functions)
     functions.showPasswords()
     sys.exit(app.exec_())

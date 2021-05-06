@@ -254,6 +254,11 @@
     <file>icons/24x24/cil-check-alt.png</file>
     <file>icons/24x24/cil-chevron-double-up-alt.png</file>
     <file>icons/24x24/cil-menu.png</file>
+    <file>icons/24x24/cil-x.png</file>
+    <file>icons/24x24/cil-check.png</file>
+    <file>icons/24x24/cil-trash.png</file>
+    <file>icons/24x24/cil-save.png</file>
+    <file>icons/24x24/cil-home.png</file>
   </qresource>
   <qresource prefix="20x20">
     <file>icons/20x20/cil-3d.png</file>
