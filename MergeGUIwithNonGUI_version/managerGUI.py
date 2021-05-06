@@ -4,6 +4,8 @@
 
 from managerModules import *
 from tableModel import TableModel
+
+
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
@@ -31,7 +33,8 @@ class MainWindow(QMainWindow):
 
         UIFunctions.selectStandardMenu(self, "btn_home")
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
-        self.ui.btn_password_add.clicked.connect(self.functionsObject.fn)
+        self.ui.btn_password_add.clicked.connect(self.addPassword)
+        self.ui.btn_password_abort.clicked.connect(self.clearPassword)
 
         def moveWindow(event):
             # IF MAXIMIZED CHANGE TO NORMAL
@@ -59,6 +62,7 @@ class MainWindow(QMainWindow):
             UIFunctions.labelPage(self, "Home")
             btnWidget.setStyleSheet(
                 UIFunctions.selectMenu(btnWidget.styleSheet()))
+            self.functionsObject.showPasswords()
 
         # PAGE NEW PASSWORD
         if btnWidget.objectName() == "btn_new_password":
@@ -104,6 +108,21 @@ class MainWindow(QMainWindow):
     def addFunctionsObject(self, fnObject):
         self.functionsObject = fnObject
 
+    def addPassword(self):
+        strPassword = str(self.ui.txt_password.text()).replace(';', '')
+        strPasswordName = str(self.ui.txt_password_name.text()).replace(';', '')
+        strEncryptedPassword = self.functionsObject.fnEncryptString(
+            f"{strPasswordName};{strPassword}", self.functionsObject.strKey)
+        self.functionsObject.fnWritePassword(strEncryptedPassword)
+        self.ui.txt_password.setText("")
+        self.ui.txt_password_name.setText("")
+
+    def clearPassword(self):
+        self.ui.txt_password.setText("")
+        self.ui.txt_password_name.setText("")
+
+
+# Init password manager
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     QtGui.QFontDatabase.addApplicationFont('fonts/segoeui.ttf')

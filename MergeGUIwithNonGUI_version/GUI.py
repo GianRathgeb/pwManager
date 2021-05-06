@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUIJaBaDO.ui'
+## Form generated from reading UI file 'GUIEiDvti.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -753,8 +753,7 @@ class Ui_MainWindow(object):
         self.btn_password_add.setFont(font2)
         self.btn_password_add.setLayoutDirection(Qt.LeftToRight)
         self.btn_password_add.setStyleSheet(u"QPushButton {\n"
-"\n"
-"	background-image: url(:/20x20/icons/20x20/cil-save.png);\n"
+"	background-image: url(:/16x16/icons/16x16/cil-check-alt.png);\n"
 "	background-position: center;\n"
 "	background-repeat: no-reperat;\n"
 "	border: none;\n"
@@ -791,7 +790,7 @@ class Ui_MainWindow(object):
         self.btn_password_abort.setSizePolicy(sizePolicy6)
         self.btn_password_abort.setFont(font2)
         self.btn_password_abort.setStyleSheet(u"QPushButton {\n"
-"	background-image: url(:/20x20/icons/20x20/cil-x-circle.png);\n"
+"	background-image: url(:/16x16/icons/16x16/cil-x.png);\n"
 "	background-position: center;\n"
 "	background-repeat: no-reperat;\n"
 "	border: none;\n"
@@ -942,9 +941,21 @@ class Ui_MainWindow(object):
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Password Manager", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Your Passwords", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Add a Password", None))
+#if QT_CONFIG(tooltip)
+        self.btn_password_add.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Add Password</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
         self.btn_password_add.setText("")
+#if QT_CONFIG(tooltip)
+        self.txt_password_name.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>No ';' allowed</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
         self.txt_password_name.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Name", None))
+#if QT_CONFIG(tooltip)
+        self.txt_password.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>No ';' allowed</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
         self.txt_password.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password", None))
+#if QT_CONFIG(tooltip)
+        self.btn_password_abort.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Clear Fields</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
         self.btn_password_abort.setText("")
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Password", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Password Name", None))

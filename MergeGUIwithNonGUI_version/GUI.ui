@@ -1650,13 +1650,15 @@ QTableView::item:focus
                           <family>Segoe UI</family>
                          </font>
                         </property>
+                        <property name="toolTip">
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add Password&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                        </property>
                         <property name="layoutDirection">
                          <enum>Qt::LeftToRight</enum>
                         </property>
                         <property name="styleSheet">
                          <string notr="true">QPushButton {
-
-	background-image: url(:/20x20/icons/20x20/cil-save.png);
+	background-image: url(:/16x16/icons/16x16/cil-check-alt.png);
 	background-position: center;
 	background-repeat: no-reperat;
 	border: none;
@@ -1681,6 +1683,9 @@ QPushButton:pressed {
                           <family>Segoe UI</family>
                          </font>
                         </property>
+                        <property name="toolTip">
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;No ';' allowed&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                        </property>
                         <property name="styleSheet">
                          <string notr="true">border-color: rgb(220, 220, 220);</string>
                         </property>
@@ -1695,6 +1700,9 @@ QPushButton:pressed {
                          <font>
                           <family>Segoe UI</family>
                          </font>
+                        </property>
+                        <property name="toolTip">
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;No ';' allowed&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                         </property>
                         <property name="styleSheet">
                          <string notr="true">border-color: rgb(220, 220, 220);</string>
@@ -1719,9 +1727,12 @@ QPushButton:pressed {
                             <family>Segoe UI</family>
                            </font>
                           </property>
+                          <property name="toolTip">
+                           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Clear Fields&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                          </property>
                           <property name="styleSheet">
                            <string notr="true">QPushButton {
-	background-image: url(:/20x20/icons/20x20/cil-x-circle.png);
+	background-image: url(:/16x16/icons/16x16/cil-x.png);
 	background-position: center;
 	background-repeat: no-reperat;
 	border: none;

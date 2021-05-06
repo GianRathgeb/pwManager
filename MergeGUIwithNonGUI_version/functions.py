@@ -19,7 +19,8 @@ class Functions():
         self.fnReadPasswords()
         tablePasswords = []
         for i, pw in enumerate(self.tempArr):
-            tablePasswords.append([i, pw[1]])
+            temp = pw[1].split(";")
+            tablePasswords.append([i, temp[0], temp[1]])
 
         self.model = TableModel(tablePasswords)
         self.ui.table_view_your_passwords.setModel(self.model)
@@ -138,10 +139,9 @@ class Functions():
                     if not self.fnValidateKey(self.keyHash, self.strKey):
                         exit(0)
 
-    def fnWritePassword(self, arrPasswords):
+    def fnWritePassword(self, strPasswords):
         with open(self.strFileName, mode='a+') as objPasswordFile:
-            for password in arrPasswords:
-                objPasswordFile.write(f"\n{password}")
+            objPasswordFile.write(f"\n{strPasswords}")
 
     def fnRewriteFile(self):
         with open(self.strFileName, mode='w') as objPasswordFile:
@@ -162,26 +162,6 @@ class Functions():
     #! File handler end
 
     #! Menu functions start
-
-    # @param: FileWriter
-
-    def fnMenu1(self, *args):
-        print("\n\n")
-        for i, j in enumerate(args):
-            print(i, j[1])
-        print("\n\n")
-
-    # @param: Encryption Key, Reference to the write Password function
-    def fnMenu2(self, *args):
-        print("\n\n")
-        userInput = input(
-            "Enter a new password: (multiple passwords separated with ;)\n")
-        arrPasswords = []
-        for password in userInput.split(";"):
-            arrPasswords.append(self.fnEncryptString(password, args[0]))
-        args[1](arrPasswords)
-        print("\n\n")
-
     # @param: FileWriter, Reference to the rewrite File function
     def fnMenu3(self, *args):
         print("\n\n")
