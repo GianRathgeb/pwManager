@@ -2,8 +2,13 @@
 # https://github.com/Wanderson-Magalhaes/Simple_PySide_Base
 
 
+# Import modules
 from managerModules import *
 from tableModel import TableModel
+
+# TODO: 
+# * Function to delete selected password in the gui
+# * Function to change the master password
 
 
 class MainWindow(QMainWindow):
