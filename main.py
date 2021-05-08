@@ -1,4 +1,4 @@
-# Credit to Wanderson Magalhaes
+# Credit to Wanderson Magalhaes, the GUI is inspired by him
 # https://github.com/Wanderson-Magalhaes/Simple_PySide_Base
 
 
