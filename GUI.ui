@@ -1690,7 +1690,7 @@ QPushButton:pressed {
                          <string notr="true">border-color: rgb(220, 220, 220);</string>
                         </property>
                         <property name="placeholderText">
-                         <string>Name</string>
+                         <string>Name (&quot;;&quot; not allowed)</string>
                         </property>
                        </widget>
                       </item>
@@ -1708,7 +1708,7 @@ QPushButton:pressed {
                          <string notr="true">border-color: rgb(220, 220, 220);</string>
                         </property>
                         <property name="placeholderText">
-                         <string>Password</string>
+                         <string>Password  (&quot;;&quot; not allowed)</string>
                         </property>
                        </widget>
                       </item>

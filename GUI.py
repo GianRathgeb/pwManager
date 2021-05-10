@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUIEiDvti.ui'
+## Form generated from reading UI file 'GUIjZiwkY.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -948,11 +948,11 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(tooltip)
         self.txt_password_name.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>No ';' allowed</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.txt_password_name.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Name", None))
+        self.txt_password_name.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Name (\";\" not allowed)", None))
 #if QT_CONFIG(tooltip)
         self.txt_password.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>No ';' allowed</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
-        self.txt_password.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password", None))
+        self.txt_password.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password  (\";\" not allowed)", None))
 #if QT_CONFIG(tooltip)
         self.btn_password_abort.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Clear Fields</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
