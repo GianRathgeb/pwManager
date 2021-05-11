@@ -9,7 +9,7 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont, QFo
 from PySide2.QtWidgets import *
 
 
-# GUI FILE
+# GUI FILE (AUTO GENERATED)
 from GUI import Ui_MainWindow
 
 # IMPORT QSS CUSTOM
