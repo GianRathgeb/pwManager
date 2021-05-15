@@ -10,6 +10,7 @@ from tableModel import TableModel
 # * Function to delete selected password in the gui
 # * Function to change the master password
 
+
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
