@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUIjZiwkY.ui'
+## Form generated from reading UI file 'GUIgmlGei.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -723,6 +723,20 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_10.addWidget(self.table_view_your_passwords)
 
+        self.btn_delete_pasword = QPushButton(self.page_home)
+        self.btn_delete_pasword.setObjectName(u"btn_delete_pasword")
+        sizePolicy5 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Fixed)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.btn_delete_pasword.sizePolicy().hasHeightForWidth())
+        self.btn_delete_pasword.setSizePolicy(sizePolicy5)
+        self.btn_delete_pasword.setAutoFillBackground(False)
+        self.btn_delete_pasword.setStyleSheet(u"background: url(:/16x16/icons/16x16/cil-remove.png) no-repeat center center transparent; \n"
+"background-size: cover;")
+        self.btn_delete_pasword.setAutoDefault(False)
+
+        self.verticalLayout_10.addWidget(self.btn_delete_pasword)
+
         self.stackedWidget.addWidget(self.page_home)
         self.page_add_password = QWidget()
         self.page_add_password.setObjectName(u"page_add_password")
@@ -730,11 +744,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.label_2 = QLabel(self.page_add_password)
         self.label_2.setObjectName(u"label_2")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
-        self.label_2.setSizePolicy(sizePolicy5)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
+        self.label_2.setSizePolicy(sizePolicy6)
         self.label_2.setFont(font4)
         self.label_2.setAlignment(Qt.AlignCenter)
 
@@ -744,11 +758,11 @@ class Ui_MainWindow(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.btn_password_add = QPushButton(self.page_add_password)
         self.btn_password_add.setObjectName(u"btn_password_add")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.btn_password_add.sizePolicy().hasHeightForWidth())
-        self.btn_password_add.setSizePolicy(sizePolicy6)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.btn_password_add.sizePolicy().hasHeightForWidth())
+        self.btn_password_add.setSizePolicy(sizePolicy7)
         self.btn_password_add.setMinimumSize(QSize(0, 15))
         self.btn_password_add.setFont(font2)
         self.btn_password_add.setLayoutDirection(Qt.LeftToRight)
@@ -786,8 +800,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
         self.btn_password_abort = QPushButton(self.page_add_password)
         self.btn_password_abort.setObjectName(u"btn_password_abort")
-        sizePolicy6.setHeightForWidth(self.btn_password_abort.sizePolicy().hasHeightForWidth())
-        self.btn_password_abort.setSizePolicy(sizePolicy6)
+        sizePolicy7.setHeightForWidth(self.btn_password_abort.sizePolicy().hasHeightForWidth())
+        self.btn_password_abort.setSizePolicy(sizePolicy7)
         self.btn_password_abort.setFont(font2)
         self.btn_password_abort.setStyleSheet(u"QPushButton {\n"
 "	background-image: url(:/16x16/icons/16x16/cil-x.png);\n"
@@ -914,7 +928,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -940,6 +954,7 @@ class Ui_MainWindow(object):
         self.label_top_info_2.setText(QCoreApplication.translate("MainWindow", u"| HOME", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Password Manager", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"Your Passwords", None))
+        self.btn_delete_pasword.setText("")
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Add a Password", None))
 #if QT_CONFIG(tooltip)
         self.btn_password_add.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Add Password</p></body></html>", None))
