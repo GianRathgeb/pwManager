@@ -10,6 +10,7 @@ from tableModel import TableModel
 # TODO: 
 # * Function to delete selected password in the gui
 # * Function to change the master password
+# * Selection function if multiple fields from table are selected
 
 
 class MainWindow(QMainWindow):
@@ -41,6 +42,7 @@ class MainWindow(QMainWindow):
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
         self.ui.btn_password_add.clicked.connect(self.addPassword)
         self.ui.btn_password_abort.clicked.connect(self.clearPassword)
+        self.ui.btn_delete_pasword.clicked.connect(self.deletePassword)
 
         def moveWindow(event):
             # IF MAXIMIZED CHANGE TO NORMAL
@@ -127,11 +129,18 @@ class MainWindow(QMainWindow):
         self.ui.txt_password.setText("")
         self.ui.txt_password_name.setText("")
 
+    def deletePassword(self):
+        indexes = self.ui.table_view_your_passwords.selectedIndexes()
+        rows = set()
+        for index in indexes:
+            rows.add(index.row())
+        print(rows)
+
 
 # Init password manager
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    QtGui.QFontDatabase.addApplicationFont('fonts/segoeui.ttf')
+    QtGui.QFontDatabase.addApplicationFont('fonts/segseui.ttf')
     QtGui.QFontDatabase.addApplicationFont('fonts/segoeuib.ttf')
     window = MainWindow()
     # TODO: Functions to input the key
