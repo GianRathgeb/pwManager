@@ -150,6 +150,15 @@ class Functions():
                 strToWrite += f"\n{i[0]}"
             objPasswordFile.write(strToWrite)
 
+    def fnDeletePassword(self, set):
+        indexes = list(set)
+        # Sort the list in reverse (no problems with indexes if multiple rows selected)
+        indexes.sort(reverse=True)
+
+        for i in range(0, len(indexes)):
+            self.tempArr.pop(indexes[i])
+        self.fnRewriteFile()
+
     def fnValidateKey(self, encrpytedHash, key):
         strKeyHash = hashlib.sha256(key.encode()).hexdigest()
         strHashToTest = self.fnEncryptString(strKeyHash, key)

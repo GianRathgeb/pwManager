@@ -134,7 +134,8 @@ class MainWindow(QMainWindow):
         rows = set()
         for index in indexes:
             rows.add(index.row())
-        print(rows)
+        self.functionsObject.fnDeletePassword(rows)
+        self.functionsObject.showPasswords()
 
 
 # Init password manager
