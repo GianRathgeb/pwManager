@@ -1549,6 +1549,9 @@ QPushButton:pressed {
                         <pointsize>14</pointsize>
                        </font>
                       </property>
+                      <property name="toolTip">
+                       <string>Delete selected Passwords</string>
+                      </property>
                       <property name="text">
                        <string>Your Passwords</string>
                       </property>
@@ -1611,12 +1614,14 @@ QTableView::item:focus
                         <verstretch>0</verstretch>
                        </sizepolicy>
                       </property>
+                      <property name="toolTip">
+                       <string>Delete selected Passwords</string>
+                      </property>
                       <property name="autoFillBackground">
                        <bool>false</bool>
                       </property>
                       <property name="styleSheet">
-                       <string notr="true">background: url(:/16x16/icons/16x16/cil-remove.png) no-repeat center center transparent; 
-background-size: cover;</string>
+                       <string notr="true">QPushButton {background: url(:/16x16/icons/16x16/cil-remove.png) no-repeat center center transparent; }</string>
                       </property>
                       <property name="text">
                        <string/>
@@ -1707,7 +1712,7 @@ QPushButton:pressed {
                          </font>
                         </property>
                         <property name="toolTip">
-                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;No ';' allowed&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;';' not allowed&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                         </property>
                         <property name="styleSheet">
                          <string notr="true">border-color: rgb(220, 220, 220);</string>
@@ -1725,7 +1730,7 @@ QPushButton:pressed {
                          </font>
                         </property>
                         <property name="toolTip">
-                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;No ';' allowed&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;';' not allowed&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                         </property>
                         <property name="styleSheet">
                          <string notr="true">border-color: rgb(220, 220, 220);</string>
