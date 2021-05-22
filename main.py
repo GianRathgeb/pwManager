@@ -8,7 +8,6 @@ from tableModel import TableModel
 
 
 # TODO: 
-# * Function to delete selected password in the gui
 # * Function to change the master password
 # * Selection function if multiple fields from table are selected
 
