@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUILFTQnD.ui'
+## Form generated from reading UI file 'GUIECUELj.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -664,15 +664,46 @@ class Ui_MainWindow(object):
         self.stackedWidget = QStackedWidget(self.frame_content)
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.stackedWidget.setStyleSheet(u"background: transparent;")
+        self.page_settings = QWidget()
+        self.page_settings.setObjectName(u"page_settings")
+        self.gridLayoutWidget = QWidget(self.page_settings)
+        self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
+        self.gridLayoutWidget.setGeometry(QRect(10, 90, 881, 501))
+        self.gridLayout_3 = QGridLayout(self.gridLayoutWidget)
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.label_9 = QLabel(self.gridLayoutWidget)
+        self.label_9.setObjectName(u"label_9")
+        sizePolicy3.setHeightForWidth(self.label_9.sizePolicy().hasHeightForWidth())
+        self.label_9.setSizePolicy(sizePolicy3)
+        self.label_9.setFont(font)
+
+        self.gridLayout_3.addWidget(self.label_9, 0, 0, 1, 1)
+
+        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_3.addItem(self.verticalSpacer_5, 1, 0, 1, 1)
+
+        self.label_8 = QLabel(self.page_settings)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setGeometry(QRect(10, 10, 882, 71))
+        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.label_8.sizePolicy().hasHeightForWidth())
+        self.label_8.setSizePolicy(sizePolicy4)
+        font4 = QFont()
+        font4.setFamily(u"Segoe UI")
+        font4.setPointSize(40)
+        self.label_8.setFont(font4)
+        self.label_8.setAlignment(Qt.AlignCenter)
+        self.stackedWidget.addWidget(self.page_settings)
         self.page_home = QWidget()
         self.page_home.setObjectName(u"page_home")
         self.verticalLayout_10 = QVBoxLayout(self.page_home)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.label_6 = QLabel(self.page_home)
         self.label_6.setObjectName(u"label_6")
-        font4 = QFont()
-        font4.setFamily(u"Segoe UI")
-        font4.setPointSize(40)
         self.label_6.setFont(font4)
         self.label_6.setStyleSheet(u"")
         self.label_6.setAlignment(Qt.AlignCenter)
@@ -691,11 +722,11 @@ class Ui_MainWindow(object):
 
         self.table_view_your_passwords = QTableView(self.page_home)
         self.table_view_your_passwords.setObjectName(u"table_view_your_passwords")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.MinimumExpanding)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.table_view_your_passwords.sizePolicy().hasHeightForWidth())
-        self.table_view_your_passwords.setSizePolicy(sizePolicy4)
+        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.MinimumExpanding)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.table_view_your_passwords.sizePolicy().hasHeightForWidth())
+        self.table_view_your_passwords.setSizePolicy(sizePolicy5)
         self.table_view_your_passwords.setStyleSheet(u"QTableView\n"
 "{\n"
 "    color: blue;\n"
@@ -725,11 +756,11 @@ class Ui_MainWindow(object):
 
         self.btn_delete_pasword = QPushButton(self.page_home)
         self.btn_delete_pasword.setObjectName(u"btn_delete_pasword")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Fixed)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.btn_delete_pasword.sizePolicy().hasHeightForWidth())
-        self.btn_delete_pasword.setSizePolicy(sizePolicy5)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.btn_delete_pasword.sizePolicy().hasHeightForWidth())
+        self.btn_delete_pasword.setSizePolicy(sizePolicy6)
         self.btn_delete_pasword.setAutoFillBackground(False)
         self.btn_delete_pasword.setStyleSheet(u"QPushButton {background: url(:/16x16/icons/16x16/cil-remove.png) no-repeat center center transparent; }")
         self.btn_delete_pasword.setAutoDefault(False)
@@ -743,11 +774,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.label_2 = QLabel(self.page_add_password)
         self.label_2.setObjectName(u"label_2")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
-        self.label_2.setSizePolicy(sizePolicy6)
+        sizePolicy4.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
+        self.label_2.setSizePolicy(sizePolicy4)
         self.label_2.setFont(font4)
         self.label_2.setAlignment(Qt.AlignCenter)
 
@@ -951,6 +979,8 @@ class Ui_MainWindow(object):
         self.btn_close.setText("")
         self.label_top_info_1.setText("")
         self.label_top_info_2.setText(QCoreApplication.translate("MainWindow", u"| HOME", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Settings to change", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Password Manager", None))
 #if QT_CONFIG(tooltip)
         self.label.setToolTip(QCoreApplication.translate("MainWindow", u"Delete selected Passwords", None))

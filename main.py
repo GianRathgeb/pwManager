@@ -10,6 +10,7 @@ from tableModel import TableModel
 # TODO: 
 # * Function to change the master password
 # * Selection function if multiple fields from table are selected
+# * List view makes window blinking when resizing
 
 
 class MainWindow(QMainWindow):
@@ -34,7 +35,7 @@ class MainWindow(QMainWindow):
                                "url(:/16x16/icons/16x16/cil-home.png)", True)
         UIFunctions.addNewMenu(self, "Add Password", "btn_new_password",
                                "url(:/16x16/icons/16x16/cil-user-follow.png)", True)
-        UIFunctions.addNewMenu(self, "Custom Widgets", "btn_widgets",
+        UIFunctions.addNewMenu(self, "Custom Widgets", "btn_settings",
                                "url(:/16x16/icons/16x16/cil-settings.png)", False)
 
         UIFunctions.selectStandardMenu(self, "btn_home")
@@ -80,9 +81,9 @@ class MainWindow(QMainWindow):
                 UIFunctions.selectMenu(btnWidget.styleSheet()))
 
         # PAGE WIDGETS
-        if btnWidget.objectName() == "btn_widgets":
-            self.ui.stackedWidget.setCurrentWidget(self.ui.page_widgets)
-            UIFunctions.resetStyle(self, "btn_widgets")
+        if btnWidget.objectName() == "btn_settings":
+            self.ui.stackedWidget.setCurrentWidget(self.ui.page_settings)
+            UIFunctions.resetStyle(self, "btn_settings")
             UIFunctions.labelPage(self, "Settings (Coming Soon)")
             btnWidget.setStyleSheet(
                 UIFunctions.selectMenu(btnWidget.styleSheet()))
