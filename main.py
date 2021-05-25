@@ -31,14 +31,8 @@ class MainWindow(QMainWindow):
         self.ui.btn_toggle_menu.clicked.connect(
             lambda: UIFunctions.toggleMenu(self, 220, True))
         self.ui.stackedWidget.setMinimumWidth(20)
-        UIFunctions.addNewMenu(self, "HOME", "btn_home",
-                               "url(:/16x16/icons/16x16/cil-home.png)", True)
-        UIFunctions.addNewMenu(self, "Add Password", "btn_new_password",
-                               "url(:/16x16/icons/16x16/cil-user-follow.png)", True)
-        UIFunctions.addNewMenu(self, "Custom Widgets", "btn_settings",
-                               "url(:/16x16/icons/16x16/cil-settings.png)", False)
 
-        UIFunctions.selectStandardMenu(self, "btn_home")
+        # DEFINE BUTTON ACTIONS
         self.ui.lbl_wrong_password.hide()
         self.ui.stackedWidget.setCurrentWidget(self.ui.page_startup)
         self.ui.btn_password_add.clicked.connect(self.addPassword)
@@ -84,7 +78,7 @@ class MainWindow(QMainWindow):
                 btnWidget.setStyleSheet(
                     UIFunctions.selectMenu(btnWidget.styleSheet()))
 
-            # PAGE WIDGETS
+            # PAGE SETTINGS
             if btnWidget.objectName() == "btn_settings":
                 self.ui.stackedWidget.setCurrentWidget(self.ui.page_settings)
                 UIFunctions.resetStyle(self, "btn_settings")
@@ -141,9 +135,17 @@ class MainWindow(QMainWindow):
     def submitMaster(self):
         masterKey = self.ui.txt_master_password.text()
         self.functionsObject = Functions(self.ui, "passwords.csv", masterKey)
+        self.functionsObject.showPasswords()
         if self.functionsObject.keyValidated:
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
             self.functionsObject.showPasswords()
+            UIFunctions.addNewMenu(self, "HOME", "btn_home",
+                               "url(:/16x16/icons/16x16/cil-home.png)", True)
+            UIFunctions.addNewMenu(self, "Add Password", "btn_new_password",
+                                "url(:/16x16/icons/16x16/cil-user-follow.png)", True)
+            UIFunctions.addNewMenu(self, "Settings", "btn_settings",
+                                "url(:/16x16/icons/16x16/cil-settings.png)", False)
+            UIFunctions.selectStandardMenu(self, "btn_home")
         else:
             self.ui.lbl_wrong_password.show()
 

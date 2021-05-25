@@ -20,14 +20,15 @@ class Functions():
         if self.stateHasChanged == True:
             self.fnReadPasswords()
             tablePasswords = []
-            for i, pw in enumerate(self.tempArr):
-                temp = pw[1].split(";")
-                tablePasswords.append([i, temp[0], temp[1]])
+            if self.keyValidated:
+                for i, pw in enumerate(self.tempArr):
+                    temp = pw[1].split(";")
+                    tablePasswords.append([i, temp[0], temp[1]])
 
-            self.model = TableModel(tablePasswords)
-            self.ui.table_view_your_passwords.setModel(self.model)
-            self.ui.table_view_your_passwords.horizontalHeader().setStretchLastSection(True)
-            self.stateHasChanged = False
+                self.model = TableModel(tablePasswords)
+                self.ui.table_view_your_passwords.setModel(self.model)
+                self.ui.table_view_your_passwords.horizontalHeader().setStretchLastSection(True)
+                self.stateHasChanged = False
 
     #! self to change GUI end
 
