@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUIECUELj.ui'
+## Form generated from reading UI file 'GUInPuMgk.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -698,6 +698,40 @@ class Ui_MainWindow(object):
         self.label_8.setFont(font4)
         self.label_8.setAlignment(Qt.AlignCenter)
         self.stackedWidget.addWidget(self.page_settings)
+        self.page_startup = QWidget()
+        self.page_startup.setObjectName(u"page_startup")
+        self.label_7 = QLabel(self.page_startup)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setGeometry(QRect(10, 3, 882, 71))
+        self.label_7.setFont(font4)
+        self.label_7.setStyleSheet(u"")
+        self.label_7.setAlignment(Qt.AlignCenter)
+        self.label_5 = QLabel(self.page_startup)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setGeometry(QRect(20, 240, 882, 25))
+        font5 = QFont()
+        font5.setFamily(u"Segoe UI")
+        font5.setPointSize(14)
+        self.label_5.setFont(font5)
+        self.label_5.setAlignment(Qt.AlignCenter)
+        self.btn_submit_master = QPushButton(self.page_startup)
+        self.btn_submit_master.setObjectName(u"btn_submit_master")
+        self.btn_submit_master.setGeometry(QRect(330, 350, 75, 23))
+        self.btn_submit_master.setStyleSheet(u"")
+        self.txt_master_password = QLineEdit(self.page_startup)
+        self.txt_master_password.setObjectName(u"txt_master_password")
+        self.txt_master_password.setGeometry(QRect(320, 270, 281, 51))
+        self.btn_cancel_master = QPushButton(self.page_startup)
+        self.btn_cancel_master.setObjectName(u"btn_cancel_master")
+        self.btn_cancel_master.setGeometry(QRect(410, 350, 75, 23))
+        self.lbl_wrong_password = QLabel(self.page_startup)
+        self.lbl_wrong_password.setObjectName(u"lbl_wrong_password")
+        self.lbl_wrong_password.setEnabled(True)
+        self.lbl_wrong_password.setGeometry(QRect(20, 200, 882, 25))
+        self.lbl_wrong_password.setFont(font5)
+        self.lbl_wrong_password.setStyleSheet(u"color: rgb(255, 0, 0);")
+        self.lbl_wrong_password.setAlignment(Qt.AlignCenter)
+        self.stackedWidget.addWidget(self.page_startup)
         self.page_home = QWidget()
         self.page_home.setObjectName(u"page_home")
         self.verticalLayout_10 = QVBoxLayout(self.page_home)
@@ -712,9 +746,6 @@ class Ui_MainWindow(object):
 
         self.label = QLabel(self.page_home)
         self.label.setObjectName(u"label")
-        font5 = QFont()
-        font5.setFamily(u"Segoe UI")
-        font5.setPointSize(14)
         self.label.setFont(font5)
         self.label.setAlignment(Qt.AlignCenter)
 
@@ -955,7 +986,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -981,6 +1012,18 @@ class Ui_MainWindow(object):
         self.label_top_info_2.setText(QCoreApplication.translate("MainWindow", u"| HOME", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"Settings to change", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Password Manager", None))
+#if QT_CONFIG(tooltip)
+        self.label_5.setToolTip(QCoreApplication.translate("MainWindow", u"Delete selected Passwords", None))
+#endif // QT_CONFIG(tooltip)
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Please enter the Master Password", None))
+        self.btn_submit_master.setText(QCoreApplication.translate("MainWindow", u"Ok", None))
+        self.txt_master_password.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Master Password", None))
+        self.btn_cancel_master.setText(QCoreApplication.translate("MainWindow", u"Cancel", None))
+#if QT_CONFIG(tooltip)
+        self.lbl_wrong_password.setToolTip(QCoreApplication.translate("MainWindow", u"Delete selected Passwords", None))
+#endif // QT_CONFIG(tooltip)
+        self.lbl_wrong_password.setText(QCoreApplication.translate("MainWindow", u"Wrong Password entered", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Password Manager", None))
 #if QT_CONFIG(tooltip)
         self.label.setToolTip(QCoreApplication.translate("MainWindow", u"Delete selected Passwords", None))

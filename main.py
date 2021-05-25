@@ -39,10 +39,13 @@ class MainWindow(QMainWindow):
                                "url(:/16x16/icons/16x16/cil-settings.png)", False)
 
         UIFunctions.selectStandardMenu(self, "btn_home")
-        self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
+        self.ui.lbl_wrong_password.hide()
+        self.ui.stackedWidget.setCurrentWidget(self.ui.page_startup)
         self.ui.btn_password_add.clicked.connect(self.addPassword)
         self.ui.btn_password_abort.clicked.connect(self.clearPassword)
         self.ui.btn_delete_pasword.clicked.connect(self.deletePassword)
+        self.ui.btn_submit_master.clicked.connect(self.submitMaster)
+        self.ui.btn_cancel_master.clicked.connect(lambda: sys.exit())
 
         def moveWindow(event):
             # IF MAXIMIZED CHANGE TO NORMAL
@@ -60,33 +63,34 @@ class MainWindow(QMainWindow):
         self.show()
 
     def Button(self):
-        # GET BT CLICKED
-        btnWidget = self.sender()
+        if self.functionsObject.keyValidated:
+            # GET BT CLICKED
+            btnWidget = self.sender()
 
-        # PAGE HOME
-        if btnWidget.objectName() == "btn_home":
-            self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
-            UIFunctions.resetStyle(self, "btn_home")
-            UIFunctions.labelPage(self, "Home")
-            btnWidget.setStyleSheet(
-                UIFunctions.selectMenu(btnWidget.styleSheet()))
-            self.functionsObject.showPasswords()
+            # PAGE HOME
+            if btnWidget.objectName() == "btn_home":
+                self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
+                UIFunctions.resetStyle(self, "btn_home")
+                UIFunctions.labelPage(self, "Home")
+                btnWidget.setStyleSheet(
+                    UIFunctions.selectMenu(btnWidget.styleSheet()))
+                self.functionsObject.showPasswords()
 
-        # PAGE NEW PASSWORD
-        if btnWidget.objectName() == "btn_new_password":
-            self.ui.stackedWidget.setCurrentWidget(self.ui.page_add_password)
-            UIFunctions.resetStyle(self, "btn_new_password")
-            UIFunctions.labelPage(self, "New Password")
-            btnWidget.setStyleSheet(
-                UIFunctions.selectMenu(btnWidget.styleSheet()))
+            # PAGE NEW PASSWORD
+            if btnWidget.objectName() == "btn_new_password":
+                self.ui.stackedWidget.setCurrentWidget(self.ui.page_add_password)
+                UIFunctions.resetStyle(self, "btn_new_password")
+                UIFunctions.labelPage(self, "New Password")
+                btnWidget.setStyleSheet(
+                    UIFunctions.selectMenu(btnWidget.styleSheet()))
 
-        # PAGE WIDGETS
-        if btnWidget.objectName() == "btn_settings":
-            self.ui.stackedWidget.setCurrentWidget(self.ui.page_settings)
-            UIFunctions.resetStyle(self, "btn_settings")
-            UIFunctions.labelPage(self, "Settings (Coming Soon)")
-            btnWidget.setStyleSheet(
-                UIFunctions.selectMenu(btnWidget.styleSheet()))
+            # PAGE WIDGETS
+            if btnWidget.objectName() == "btn_settings":
+                self.ui.stackedWidget.setCurrentWidget(self.ui.page_settings)
+                UIFunctions.resetStyle(self, "btn_settings")
+                UIFunctions.labelPage(self, "Settings (Coming Soon)")
+                btnWidget.setStyleSheet(
+                    UIFunctions.selectMenu(btnWidget.styleSheet()))
 
     def eventFilter(self, watched, event):
         if watched == self.le and event.type() == QtCore.QEvent.MouseButtonDblClick:
@@ -113,9 +117,6 @@ class MainWindow(QMainWindow):
         print('Height: ' + str(self.height()) +
               ' | Width: ' + str(self.width()))
 
-    def addFunctionsObject(self, fnObject):
-        self.functionsObject = fnObject
-
     def addPassword(self):
         strPassword = str(self.ui.txt_password.text()).replace(';', '')
         strPasswordName = str(self.ui.txt_password_name.text()).replace(';', '')
@@ -137,6 +138,15 @@ class MainWindow(QMainWindow):
         self.functionsObject.fnDeletePassword(rows)
         self.functionsObject.showPasswords()
 
+    def submitMaster(self):
+        masterKey = self.ui.txt_master_password.text()
+        self.functionsObject = Functions(self.ui, "passwords.csv", masterKey)
+        if self.functionsObject.keyValidated:
+            self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
+            self.functionsObject.showPasswords()
+        else:
+            self.ui.lbl_wrong_password.show()
+
 
 # Init password manager
 if __name__ == "__main__":
@@ -144,8 +154,4 @@ if __name__ == "__main__":
     QtGui.QFontDatabase.addApplicationFont('fonts/segseui.ttf')
     QtGui.QFontDatabase.addApplicationFont('fonts/segoeuib.ttf')
     window = MainWindow()
-    # TODO: Functions to input the key
-    functions = Functions(window.ui, "passwords.csv", "TestKey")
-    window.addFunctionsObject(functions)
-    functions.showPasswords()
     sys.exit(app.exec_())

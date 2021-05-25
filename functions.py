@@ -11,7 +11,7 @@ class Functions():
         self.ui = ui
         self.strFileName = fileName
         self.strKey = strKey
-        self.kayValidated = False
+        self.keyValidated = False
         self.stateHasChanged = True
 
     #! self to change GUI start
@@ -137,10 +137,11 @@ class Functions():
                 tempPassword = self.fnDecryptString(j, self.strKey)
                 self.tempArr.append([j, tempPassword])
             else:
-                if not self.kayValidated:
+                if not self.keyValidated:
                     self.keyHash = j
-                    if not self.fnValidateKey(self.keyHash, self.strKey):
-                        exit(0)
+                    self.fnValidateKey(self.keyHash, self.strKey)
+                    if not self.keyValidated:
+                        print("Wrong Key")
 
     def fnWritePassword(self, strPasswords):
         with open(self.strFileName, mode='a+') as objPasswordFile:
@@ -168,10 +169,9 @@ class Functions():
         strKeyHash = hashlib.sha256(key.encode()).hexdigest()
         strHashToTest = self.fnEncryptString(strKeyHash, key)
         if encrpytedHash == strHashToTest:
-            self.kayValidated = True
-            return True
+            self.keyValidated = True
         else:
-            return False
+            return
 
     #! File handler end
 
