@@ -12,19 +12,22 @@ class Functions():
         self.strFileName = fileName
         self.strKey = strKey
         self.kayValidated = False
+        self.stateHasChanged = True
 
     #! self to change GUI start
 
     def showPasswords(self):
-        self.fnReadPasswords()
-        tablePasswords = []
-        for i, pw in enumerate(self.tempArr):
-            temp = pw[1].split(";")
-            tablePasswords.append([i, temp[0], temp[1]])
+        if self.stateHasChanged == True:
+            self.fnReadPasswords()
+            tablePasswords = []
+            for i, pw in enumerate(self.tempArr):
+                temp = pw[1].split(";")
+                tablePasswords.append([i, temp[0], temp[1]])
 
-        self.model = TableModel(tablePasswords)
-        self.ui.table_view_your_passwords.setModel(self.model)
-        self.ui.table_view_your_passwords.horizontalHeader().setStretchLastSection(True)
+            self.model = TableModel(tablePasswords)
+            self.ui.table_view_your_passwords.setModel(self.model)
+            self.ui.table_view_your_passwords.horizontalHeader().setStretchLastSection(True)
+            self.stateHasChanged = False
 
     #! self to change GUI end
 
@@ -142,6 +145,7 @@ class Functions():
     def fnWritePassword(self, strPasswords):
         with open(self.strFileName, mode='a+') as objPasswordFile:
             objPasswordFile.write(f"\n{strPasswords}")
+        self.stateHasChanged = True
 
     def fnRewriteFile(self):
         with open(self.strFileName, mode='w') as objPasswordFile:
@@ -149,6 +153,7 @@ class Functions():
             for i in self.tempArr:
                 strToWrite += f"\n{i[0]}"
             objPasswordFile.write(strToWrite)
+        self.stateHasChanged = True
 
     def fnDeletePassword(self, set):
         indexes = list(set)
