@@ -10,7 +10,6 @@ from tableModel import TableModel
 # * Function to change the master password
 # * Selection function if multiple fields from table are selected
 # * List view makes window blinking when resizing
-# * Input field for the password file
 
 
 class MainWindow(QMainWindow):
@@ -57,6 +56,7 @@ class MainWindow(QMainWindow):
         self.show()
 
     def Button(self):
+        # First check if the key is validated (used to prevent unauthorized access)
         if self.functionsObject.keyValidated:
             # GET BT CLICKED
             btnWidget = self.sender()
@@ -77,6 +77,7 @@ class MainWindow(QMainWindow):
                 UIFunctions.labelPage(self, "New Password")
                 btnWidget.setStyleSheet(
                     UIFunctions.selectMenu(btnWidget.styleSheet()))
+                self.ui.txt_password_name.setFocus()
 
             # PAGE SETTINGS
             if btnWidget.objectName() == "btn_settings":
@@ -134,7 +135,10 @@ class MainWindow(QMainWindow):
 
     def submitMaster(self):
         masterKey = self.ui.txt_master_password.text()
-        self.functionsObject = Functions(self.ui, "passwords.csv", masterKey)
+        filename = self.ui.txt_password_file.text()
+        if filename == "":
+            filename = "passwords.csv"
+        self.functionsObject = Functions(self.ui, filename, masterKey)
         self.functionsObject.showPasswords()
         if self.functionsObject.keyValidated:
             self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUInPuMgk.ui'
+## Form generated from reading UI file 'GUIOXaJyT.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -393,6 +393,7 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {	\n"
 "	background-color: rgb(85, 170, 255);\n"
 "}")
+        self.btn_toggle_menu.setAutoDefault(True)
 
         self.verticalLayout_3.addWidget(self.btn_toggle_menu)
 
@@ -493,6 +494,7 @@ class Ui_MainWindow(object):
         icon = QIcon()
         icon.addFile(u":/16x16/icons/16x16/cil-window-minimize.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_minimize.setIcon(icon)
+        self.btn_minimize.setAutoDefault(True)
 
         self.horizontalLayout_5.addWidget(self.btn_minimize)
 
@@ -515,6 +517,7 @@ class Ui_MainWindow(object):
         icon1 = QIcon()
         icon1.addFile(u":/16x16/icons/16x16/cil-window-maximize.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_maximize_restore.setIcon(icon1)
+        self.btn_maximize_restore.setAutoDefault(True)
 
         self.horizontalLayout_5.addWidget(self.btn_maximize_restore)
 
@@ -537,6 +540,7 @@ class Ui_MainWindow(object):
         icon2 = QIcon()
         icon2.addFile(u":/16x16/icons/16x16/cil-x.png", QSize(), QIcon.Normal, QIcon.Off)
         self.btn_close.setIcon(icon2)
+        self.btn_close.setAutoDefault(True)
 
         self.horizontalLayout_5.addWidget(self.btn_close)
 
@@ -721,16 +725,27 @@ class Ui_MainWindow(object):
         self.txt_master_password = QLineEdit(self.page_startup)
         self.txt_master_password.setObjectName(u"txt_master_password")
         self.txt_master_password.setGeometry(QRect(320, 270, 281, 51))
+        self.txt_master_password.setEchoMode(QLineEdit.Password)
         self.btn_cancel_master = QPushButton(self.page_startup)
         self.btn_cancel_master.setObjectName(u"btn_cancel_master")
         self.btn_cancel_master.setGeometry(QRect(410, 350, 75, 23))
+        self.btn_cancel_master.setAutoDefault(True)
         self.lbl_wrong_password = QLabel(self.page_startup)
         self.lbl_wrong_password.setObjectName(u"lbl_wrong_password")
         self.lbl_wrong_password.setEnabled(True)
-        self.lbl_wrong_password.setGeometry(QRect(20, 200, 882, 25))
+        self.lbl_wrong_password.setGeometry(QRect(0, 100, 882, 25))
         self.lbl_wrong_password.setFont(font5)
         self.lbl_wrong_password.setStyleSheet(u"color: rgb(255, 0, 0);")
         self.lbl_wrong_password.setAlignment(Qt.AlignCenter)
+        self.txt_password_file = QLineEdit(self.page_startup)
+        self.txt_password_file.setObjectName(u"txt_password_file")
+        self.txt_password_file.setGeometry(QRect(320, 190, 281, 51))
+        self.txt_password_file.setTabletTracking(False)
+        self.label_10 = QLabel(self.page_startup)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setGeometry(QRect(20, 150, 882, 25))
+        self.label_10.setFont(font5)
+        self.label_10.setAlignment(Qt.AlignCenter)
         self.stackedWidget.addWidget(self.page_startup)
         self.page_home = QWidget()
         self.page_home.setObjectName(u"page_home")
@@ -794,7 +809,7 @@ class Ui_MainWindow(object):
         self.btn_delete_pasword.setSizePolicy(sizePolicy6)
         self.btn_delete_pasword.setAutoFillBackground(False)
         self.btn_delete_pasword.setStyleSheet(u"QPushButton {background: url(:/16x16/icons/16x16/cil-remove.png) no-repeat center center transparent; }")
-        self.btn_delete_pasword.setAutoDefault(False)
+        self.btn_delete_pasword.setAutoDefault(True)
 
         self.verticalLayout_10.addWidget(self.btn_delete_pasword)
 
@@ -837,6 +852,7 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {	\n"
 "	background-color: rgb(85, 170, 255);\n"
 "}")
+        self.btn_password_add.setAutoDefault(True)
 
         self.gridLayout.addWidget(self.btn_password_add, 2, 0, 1, 1)
 
@@ -874,6 +890,7 @@ class Ui_MainWindow(object):
 "QPushButton:pressed {	\n"
 "	background-color: rgb(85, 170, 255);\n"
 "}")
+        self.btn_password_abort.setAutoDefault(True)
 
         self.horizontalLayout_9.addWidget(self.btn_password_abort)
 
@@ -980,13 +997,31 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.frame_main)
 
         MainWindow.setCentralWidget(self.centralwidget)
+        QWidget.setTabOrder(self.txt_password_file, self.txt_master_password)
+        QWidget.setTabOrder(self.txt_master_password, self.btn_submit_master)
+        QWidget.setTabOrder(self.btn_submit_master, self.btn_cancel_master)
+        QWidget.setTabOrder(self.btn_cancel_master, self.btn_minimize)
         QWidget.setTabOrder(self.btn_minimize, self.btn_maximize_restore)
         QWidget.setTabOrder(self.btn_maximize_restore, self.btn_close)
         QWidget.setTabOrder(self.btn_close, self.btn_toggle_menu)
+        QWidget.setTabOrder(self.btn_toggle_menu, self.txt_password_name)
+        QWidget.setTabOrder(self.txt_password_name, self.txt_password)
+        QWidget.setTabOrder(self.txt_password, self.btn_password_add)
+        QWidget.setTabOrder(self.btn_password_add, self.btn_password_abort)
+        QWidget.setTabOrder(self.btn_password_abort, self.btn_delete_pasword)
+        QWidget.setTabOrder(self.btn_delete_pasword, self.table_view_your_passwords)
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.btn_toggle_menu.setDefault(False)
+        self.btn_minimize.setDefault(False)
+        self.btn_maximize_restore.setDefault(False)
+        self.btn_close.setDefault(False)
+        self.stackedWidget.setCurrentIndex(2)
+        self.btn_submit_master.setDefault(True)
+        self.btn_cancel_master.setDefault(False)
+        self.btn_password_add.setDefault(False)
+        self.btn_password_abort.setDefault(False)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1016,7 +1051,7 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(tooltip)
         self.label_5.setToolTip(QCoreApplication.translate("MainWindow", u"Delete selected Passwords", None))
 #endif // QT_CONFIG(tooltip)
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Please enter the Master Password", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Enter the master Password", None))
         self.btn_submit_master.setText(QCoreApplication.translate("MainWindow", u"Ok", None))
         self.txt_master_password.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Master Password", None))
         self.btn_cancel_master.setText(QCoreApplication.translate("MainWindow", u"Cancel", None))
@@ -1024,6 +1059,11 @@ class Ui_MainWindow(object):
         self.lbl_wrong_password.setToolTip(QCoreApplication.translate("MainWindow", u"Delete selected Passwords", None))
 #endif // QT_CONFIG(tooltip)
         self.lbl_wrong_password.setText(QCoreApplication.translate("MainWindow", u"Wrong Password entered", None))
+        self.txt_password_file.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Password File Name (default = passwords.csv)", None))
+#if QT_CONFIG(tooltip)
+        self.label_10.setToolTip(QCoreApplication.translate("MainWindow", u"Delete selected Passwords", None))
+#endif // QT_CONFIG(tooltip)
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Enter the password File Name", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Password Manager", None))
 #if QT_CONFIG(tooltip)
         self.label.setToolTip(QCoreApplication.translate("MainWindow", u"Delete selected Passwords", None))
