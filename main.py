@@ -10,7 +10,7 @@ from tableModel import TableModel
 # * Function to change the master password
 # * Selection function if multiple fields from table are selected
 # * List view makes window blinking when resizing
-# * Function to add the key
+# * Input field for the password file
 
 
 class MainWindow(QMainWindow):
