@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUIOXaJyT.ui'
+## Form generated from reading UI file 'GUIOOYsqH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -1000,16 +1000,16 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.txt_password_file, self.txt_master_password)
         QWidget.setTabOrder(self.txt_master_password, self.btn_submit_master)
         QWidget.setTabOrder(self.btn_submit_master, self.btn_cancel_master)
-        QWidget.setTabOrder(self.btn_cancel_master, self.btn_minimize)
+        QWidget.setTabOrder(self.btn_cancel_master, self.btn_toggle_menu)
+        QWidget.setTabOrder(self.btn_toggle_menu, self.btn_minimize)
         QWidget.setTabOrder(self.btn_minimize, self.btn_maximize_restore)
         QWidget.setTabOrder(self.btn_maximize_restore, self.btn_close)
-        QWidget.setTabOrder(self.btn_close, self.btn_toggle_menu)
-        QWidget.setTabOrder(self.btn_toggle_menu, self.txt_password_name)
+        QWidget.setTabOrder(self.btn_close, self.table_view_your_passwords)
+        QWidget.setTabOrder(self.table_view_your_passwords, self.btn_delete_pasword)
+        QWidget.setTabOrder(self.btn_delete_pasword, self.txt_password_name)
         QWidget.setTabOrder(self.txt_password_name, self.txt_password)
         QWidget.setTabOrder(self.txt_password, self.btn_password_add)
         QWidget.setTabOrder(self.btn_password_add, self.btn_password_abort)
-        QWidget.setTabOrder(self.btn_password_abort, self.btn_delete_pasword)
-        QWidget.setTabOrder(self.btn_delete_pasword, self.table_view_your_passwords)
 
         self.retranslateUi(MainWindow)
 
@@ -1017,7 +1017,7 @@ class Ui_MainWindow(object):
         self.btn_minimize.setDefault(False)
         self.btn_maximize_restore.setDefault(False)
         self.btn_close.setDefault(False)
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
         self.btn_submit_master.setDefault(True)
         self.btn_cancel_master.setDefault(False)
         self.btn_password_add.setDefault(False)

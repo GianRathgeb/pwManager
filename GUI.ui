@@ -1542,7 +1542,7 @@ QPushButton:pressed {
                    <string notr="true">background: transparent;</string>
                   </property>
                   <property name="currentIndex">
-                   <number>2</number>
+                   <number>0</number>
                   </property>
                   <widget class="QWidget" name="page_settings">
                    <widget class="QWidget" name="gridLayoutWidget">
@@ -2302,16 +2302,16 @@ QPushButton:pressed {
   <tabstop>txt_master_password</tabstop>
   <tabstop>btn_submit_master</tabstop>
   <tabstop>btn_cancel_master</tabstop>
+  <tabstop>btn_toggle_menu</tabstop>
   <tabstop>btn_minimize</tabstop>
   <tabstop>btn_maximize_restore</tabstop>
   <tabstop>btn_close</tabstop>
-  <tabstop>btn_toggle_menu</tabstop>
+  <tabstop>table_view_your_passwords</tabstop>
+  <tabstop>btn_delete_pasword</tabstop>
   <tabstop>txt_password_name</tabstop>
   <tabstop>txt_password</tabstop>
   <tabstop>btn_password_add</tabstop>
   <tabstop>btn_password_abort</tabstop>
-  <tabstop>btn_delete_pasword</tabstop>
-  <tabstop>table_view_your_passwords</tabstop>
  </tabstops>
  <resources>
   <include location="files.qrc"/>
