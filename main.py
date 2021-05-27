@@ -77,6 +77,7 @@ class MainWindow(QMainWindow):
                 UIFunctions.labelPage(self, "New Password")
                 btnWidget.setStyleSheet(
                     UIFunctions.selectMenu(btnWidget.styleSheet()))
+                # When the button is pressed, set to focus to the text field
                 self.ui.txt_password_name.setFocus()
 
             # PAGE SETTINGS
