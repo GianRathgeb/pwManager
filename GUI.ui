@@ -1926,7 +1926,7 @@ QTableView::item:focus
                        </font>
                       </property>
                       <property name="text">
-                       <string>Add a Password</string>
+                       <string>New Password</string>
                       </property>
                       <property name="alignment">
                        <set>Qt::AlignCenter</set>
@@ -1955,7 +1955,7 @@ QTableView::item:focus
                          </font>
                         </property>
                         <property name="toolTip">
-                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Add Password&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New Password&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                         </property>
                         <property name="layoutDirection">
                          <enum>Qt::LeftToRight</enum>
