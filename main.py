@@ -6,7 +6,6 @@
 from managerModules import *
 from tableModel import TableModel
 
-
 # TODO: 
 # * Function to change the master password
 # * Selection function if multiple fields from table are selected
