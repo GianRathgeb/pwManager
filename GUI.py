@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUIOOYsqH.ui'
+## Form generated from reading UI file 'GUIMJqKpH.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -676,6 +676,41 @@ class Ui_MainWindow(object):
         self.gridLayout_3 = QGridLayout(self.gridLayoutWidget)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.txt_new_master_password = QLineEdit(self.gridLayoutWidget)
+        self.txt_new_master_password.setObjectName(u"txt_new_master_password")
+        self.txt_new_master_password.setFont(font2)
+        self.txt_new_master_password.setStyleSheet(u"border-color: rgb(220, 220, 220);")
+        self.txt_new_master_password.setEchoMode(QLineEdit.Password)
+
+        self.gridLayout_3.addWidget(self.txt_new_master_password, 0, 1, 1, 1)
+
+        self.btn_apply_new_settings = QPushButton(self.gridLayoutWidget)
+        self.btn_apply_new_settings.setObjectName(u"btn_apply_new_settings")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.btn_apply_new_settings.sizePolicy().hasHeightForWidth())
+        self.btn_apply_new_settings.setSizePolicy(sizePolicy4)
+        self.btn_apply_new_settings.setMinimumSize(QSize(0, 15))
+        self.btn_apply_new_settings.setFont(font2)
+        self.btn_apply_new_settings.setLayoutDirection(Qt.LeftToRight)
+        self.btn_apply_new_settings.setStyleSheet(u"QPushButton {\n"
+"	background-image: url(:/16x16/icons/16x16/cil-check-alt.png);\n"
+"	background-position: center;\n"
+"	background-repeat: no-reperat;\n"
+"	border: none;\n"
+"	background-color: rgb(27, 29, 35, 0);\n"
+"}\n"
+"QPushButton:hover {\n"
+"	background-color: rgb(33, 37, 43);\n"
+"}\n"
+"QPushButton:pressed {	\n"
+"	background-color: rgb(85, 170, 255);\n"
+"}")
+        self.btn_apply_new_settings.setAutoDefault(True)
+
+        self.gridLayout_3.addWidget(self.btn_apply_new_settings, 2, 0, 1, 1)
+
         self.label_9 = QLabel(self.gridLayoutWidget)
         self.label_9.setObjectName(u"label_9")
         sizePolicy3.setHeightForWidth(self.label_9.sizePolicy().hasHeightForWidth())
@@ -684,18 +719,30 @@ class Ui_MainWindow(object):
 
         self.gridLayout_3.addWidget(self.label_9, 0, 0, 1, 1)
 
-        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.label_11 = QLabel(self.gridLayoutWidget)
+        self.label_11.setObjectName(u"label_11")
+        sizePolicy3.setHeightForWidth(self.label_11.sizePolicy().hasHeightForWidth())
+        self.label_11.setSizePolicy(sizePolicy3)
+        self.label_11.setFont(font)
 
-        self.gridLayout_3.addItem(self.verticalSpacer_5, 1, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.label_11, 1, 0, 1, 1)
+
+        self.txt_confirm_new_master = QLineEdit(self.gridLayoutWidget)
+        self.txt_confirm_new_master.setObjectName(u"txt_confirm_new_master")
+        self.txt_confirm_new_master.setFont(font2)
+        self.txt_confirm_new_master.setStyleSheet(u"border-color: rgb(220, 220, 220);")
+        self.txt_confirm_new_master.setEchoMode(QLineEdit.Password)
+
+        self.gridLayout_3.addWidget(self.txt_confirm_new_master, 1, 1, 1, 1)
 
         self.label_8 = QLabel(self.page_settings)
         self.label_8.setObjectName(u"label_8")
         self.label_8.setGeometry(QRect(10, 10, 882, 71))
-        sizePolicy4 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.label_8.sizePolicy().hasHeightForWidth())
-        self.label_8.setSizePolicy(sizePolicy4)
+        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.label_8.sizePolicy().hasHeightForWidth())
+        self.label_8.setSizePolicy(sizePolicy5)
         font4 = QFont()
         font4.setFamily(u"Segoe UI")
         font4.setPointSize(40)
@@ -768,11 +815,11 @@ class Ui_MainWindow(object):
 
         self.table_view_your_passwords = QTableView(self.page_home)
         self.table_view_your_passwords.setObjectName(u"table_view_your_passwords")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.MinimumExpanding)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(self.table_view_your_passwords.sizePolicy().hasHeightForWidth())
-        self.table_view_your_passwords.setSizePolicy(sizePolicy5)
+        sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.MinimumExpanding)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.table_view_your_passwords.sizePolicy().hasHeightForWidth())
+        self.table_view_your_passwords.setSizePolicy(sizePolicy6)
         self.table_view_your_passwords.setStyleSheet(u"QTableView\n"
 "{\n"
 "    color: blue;\n"
@@ -802,11 +849,11 @@ class Ui_MainWindow(object):
 
         self.btn_delete_pasword = QPushButton(self.page_home)
         self.btn_delete_pasword.setObjectName(u"btn_delete_pasword")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Fixed)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(self.btn_delete_pasword.sizePolicy().hasHeightForWidth())
-        self.btn_delete_pasword.setSizePolicy(sizePolicy6)
+        sizePolicy7 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Fixed)
+        sizePolicy7.setHorizontalStretch(0)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(self.btn_delete_pasword.sizePolicy().hasHeightForWidth())
+        self.btn_delete_pasword.setSizePolicy(sizePolicy7)
         self.btn_delete_pasword.setAutoFillBackground(False)
         self.btn_delete_pasword.setStyleSheet(u"QPushButton {background: url(:/16x16/icons/16x16/cil-remove.png) no-repeat center center transparent; }")
         self.btn_delete_pasword.setAutoDefault(True)
@@ -820,8 +867,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.label_2 = QLabel(self.page_add_password)
         self.label_2.setObjectName(u"label_2")
-        sizePolicy4.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
-        self.label_2.setSizePolicy(sizePolicy4)
+        sizePolicy5.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
+        self.label_2.setSizePolicy(sizePolicy5)
         self.label_2.setFont(font4)
         self.label_2.setAlignment(Qt.AlignCenter)
 
@@ -831,11 +878,8 @@ class Ui_MainWindow(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.btn_password_add = QPushButton(self.page_add_password)
         self.btn_password_add.setObjectName(u"btn_password_add")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(0)
-        sizePolicy7.setHeightForWidth(self.btn_password_add.sizePolicy().hasHeightForWidth())
-        self.btn_password_add.setSizePolicy(sizePolicy7)
+        sizePolicy4.setHeightForWidth(self.btn_password_add.sizePolicy().hasHeightForWidth())
+        self.btn_password_add.setSizePolicy(sizePolicy4)
         self.btn_password_add.setMinimumSize(QSize(0, 15))
         self.btn_password_add.setFont(font2)
         self.btn_password_add.setLayoutDirection(Qt.LeftToRight)
@@ -874,8 +918,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
         self.btn_password_abort = QPushButton(self.page_add_password)
         self.btn_password_abort.setObjectName(u"btn_password_abort")
-        sizePolicy7.setHeightForWidth(self.btn_password_abort.sizePolicy().hasHeightForWidth())
-        self.btn_password_abort.setSizePolicy(sizePolicy7)
+        sizePolicy4.setHeightForWidth(self.btn_password_abort.sizePolicy().hasHeightForWidth())
+        self.btn_password_abort.setSizePolicy(sizePolicy4)
         self.btn_password_abort.setFont(font2)
         self.btn_password_abort.setStyleSheet(u"QPushButton {\n"
 "	background-image: url(:/16x16/icons/16x16/cil-x.png);\n"
@@ -1010,6 +1054,9 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.txt_password_name, self.txt_password)
         QWidget.setTabOrder(self.txt_password, self.btn_password_add)
         QWidget.setTabOrder(self.btn_password_add, self.btn_password_abort)
+        QWidget.setTabOrder(self.btn_password_abort, self.txt_new_master_password)
+        QWidget.setTabOrder(self.txt_new_master_password, self.txt_confirm_new_master)
+        QWidget.setTabOrder(self.txt_confirm_new_master, self.btn_apply_new_settings)
 
         self.retranslateUi(MainWindow)
 
@@ -1018,6 +1065,7 @@ class Ui_MainWindow(object):
         self.btn_maximize_restore.setDefault(False)
         self.btn_close.setDefault(False)
         self.stackedWidget.setCurrentIndex(0)
+        self.btn_apply_new_settings.setDefault(False)
         self.btn_submit_master.setDefault(True)
         self.btn_cancel_master.setDefault(False)
         self.btn_password_add.setDefault(False)
@@ -1045,7 +1093,20 @@ class Ui_MainWindow(object):
         self.btn_close.setText("")
         self.label_top_info_1.setText("")
         self.label_top_info_2.setText(QCoreApplication.translate("MainWindow", u"| HOME", None))
-        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Settings to change", None))
+#if QT_CONFIG(tooltip)
+        self.txt_new_master_password.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Change Master Password</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.txt_new_master_password.setPlaceholderText(QCoreApplication.translate("MainWindow", u"New Master Password", None))
+#if QT_CONFIG(tooltip)
+        self.btn_apply_new_settings.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>New Password</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.btn_apply_new_settings.setText("")
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Change Master Password", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Confirm Master Password", None))
+#if QT_CONFIG(tooltip)
+        self.txt_confirm_new_master.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Confirm Master Password</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.txt_confirm_new_master.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Confirm Master Password", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Password Manager", None))
 #if QT_CONFIG(tooltip)

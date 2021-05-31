@@ -7,7 +7,7 @@ from managerModules import *
 from tableModel import TableModel
 
 # TODO: 
-# * Function to change the master password
+# * Function to change the master password (implemented, but does not correctly work)
 # * Selection function if multiple fields from table are selected
 # * List view makes window blinking when resizing
 
@@ -39,6 +39,7 @@ class MainWindow(QMainWindow):
         self.ui.btn_delete_pasword.clicked.connect(self.deletePassword)
         self.ui.btn_submit_master.clicked.connect(self.submitMaster)
         self.ui.btn_cancel_master.clicked.connect(lambda: sys.exit())
+        self.ui.btn_apply_new_settings.clicked.connect(self.applySettings)
 
         def moveWindow(event):
             # IF MAXIMIZED CHANGE TO NORMAL
@@ -87,6 +88,7 @@ class MainWindow(QMainWindow):
                 UIFunctions.labelPage(self, "Settings (Coming Soon)")
                 btnWidget.setStyleSheet(
                     UIFunctions.selectMenu(btnWidget.styleSheet()))
+                self.ui.txt_new_master_password.setFocus()
 
     def eventFilter(self, watched, event):
         if watched == self.le and event.type() == QtCore.QEvent.MouseButtonDblClick:
@@ -133,6 +135,13 @@ class MainWindow(QMainWindow):
             rows.add(index.row())
         self.functionsObject.fnDeletePassword(rows)
         self.functionsObject.showPasswords()
+
+    def applySettings(self):
+        newKey = self.ui.txt_new_master_password.text()
+        confirmKey = self.ui.txt_confirm_new_master.text()
+        if newKey == confirmKey:
+            self.functionsObject.changeMaster(newKey)
+            print(f"Changed key to {newKey}")
 
     def submitMaster(self):
         masterKey = self.ui.txt_master_password.text()

@@ -174,6 +174,17 @@ class Functions():
         else:
             return
 
+    def changeMaster(self, newKey):
+        strKeyHash = hashlib.sha256(newKey.encode()).hexdigest()
+        strEncryptedHash = self.fnEncryptString(strKeyHash, newKey)
+        self.keyHash = strEncryptedHash
+        newEncryptedPasswords = []
+        for i, password in enumerate(self.tempArr):
+            newEncryptedPasswords.append([i, self.fnEncryptString(password[1], newKey)])
+        self.tempArr = newEncryptedPasswords.copy()
+        # TODO: Problem is here
+        self.fnRewriteFile()
+
     #! File handler end
 
     #! Menu functions start
