@@ -1,7 +1,6 @@
 # Credit to Wanderson Magalhaes, the GUI is inspired by him
 # https://github.com/Wanderson-Magalhaes/Simple_PySide_Base
 
-
 # Import modules
 from managerModules import *
 from tableModel import TableModel
