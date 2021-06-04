@@ -84,7 +84,7 @@ class MainWindow(QMainWindow):
             if btnWidget.objectName() == "btn_settings":
                 self.ui.stackedWidget.setCurrentWidget(self.ui.page_settings)
                 UIFunctions.resetStyle(self, "btn_settings")
-                UIFunctions.labelPage(self, "Settings (Coming Soon)")
+                UIFunctions.labelPage(self, "Settings")
                 btnWidget.setStyleSheet(
                     UIFunctions.selectMenu(btnWidget.styleSheet()))
                 self.ui.txt_new_master_password.setFocus()
