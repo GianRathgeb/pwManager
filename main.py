@@ -1,5 +1,9 @@
 # Credit to Wanderson Magalhaes, the GUI is inspired by him
 # https://github.com/Wanderson-Magalhaes/Simple_PySide_Base
+# The rest of the code and GUI was made by GianRathgeb
+# https://github.com/gianrathgeb
+
+
 
 # Import modules
 from managerModules import *
