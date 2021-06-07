@@ -145,7 +145,9 @@ class MainWindow(QMainWindow):
         confirmKey = self.ui.txt_confirm_new_master.text()
         if newKey == confirmKey:
             self.functionsObject.changeMaster(newKey)
-            print(f"Changed key to {newKey}")
+            self.ui.txt_new_master_password.setText('')
+            self.ui.txt_confirm_new_master.setText('')
+            self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
 
     def submitMaster(self):
         masterKey = self.ui.txt_master_password.text()

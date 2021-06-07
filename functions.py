@@ -191,23 +191,3 @@ class Functions():
 
     #! File handler end
 
-    #! Menu functions start
-    # @param: FileWriter, Reference to the rewrite File function
-    def fnMenu3(self, *args):
-        print("\n\n")
-        for i, j in enumerate(args[0]):
-            print(i, j[1])
-        deletePassword = int(
-            input("Which password do you want to delete? (Use number)\n"))
-        try:
-            args[0].pop(deletePassword)
-            args[1]()
-            print("\n\n")
-        except IndexError:
-            print("Please enter a correct password")
-
-    # @param: -
-    def fnMenu4(self, *args):
-        exit()
-
-    #! Menu functions end
