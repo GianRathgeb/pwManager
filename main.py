@@ -11,7 +11,7 @@ from tableModel import TableModel
 
 
 # TODO: 
-# * Function to change the master password (implemented, but does not correctly work)
+# * Enter old password before changing master
 # * Selection function if multiple fields from table are selected
 # * List view makes window blinking when resizing
 
