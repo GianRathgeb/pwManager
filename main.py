@@ -9,12 +9,10 @@
 from managerModules import *
 from tableModel import TableModel
 
-
 # TODO: 
 # * Enter old password before changing master
 # * Selection function if multiple fields from table are selected (selection works, but does not show)
 # * List view makes window blinking when resizing
-
 
 class MainWindow(QMainWindow):
     def __init__(self):
