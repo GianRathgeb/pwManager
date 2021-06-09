@@ -90,7 +90,7 @@ class MainWindow(QMainWindow):
                 UIFunctions.labelPage(self, "Settings")
                 btnWidget.setStyleSheet(
                     UIFunctions.selectMenu(btnWidget.styleSheet()))
-                self.ui.txt_new_master_password.setFocus()
+                self.ui.txt_current_master.setFocus()
 
     def eventFilter(self, watched, event):
         if watched == self.le and event.type() == QtCore.QEvent.MouseButtonDblClick:
@@ -139,13 +139,17 @@ class MainWindow(QMainWindow):
         self.functionsObject.showPasswords()
 
     def applySettings(self):
-        newKey = self.ui.txt_new_master_password.text()
-        confirmKey = self.ui.txt_confirm_new_master.text()
-        if newKey == confirmKey:
-            self.functionsObject.changeMaster(newKey)
-            self.ui.txt_new_master_password.setText('')
-            self.ui.txt_confirm_new_master.setText('')
-            self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
+        inputCurrentKey = self.ui.txt_current_master.text()
+        if self.functionsObject.strKey == inputCurrentKey:
+            newKey = self.ui.txt_new_master_password.text()
+            confirmKey = self.ui.txt_confirm_new_master.text()
+            if newKey == confirmKey:
+                self.functionsObject.changeMaster(newKey)
+                self.ui.txt_new_master_password.setText('')
+                self.ui.txt_confirm_new_master.setText('')
+                self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
+        else:
+            print("Wrong Master Passwords entered")
 
     def submitMaster(self):
         masterKey = self.ui.txt_master_password.text()

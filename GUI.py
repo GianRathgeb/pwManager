@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUIMJqKpH.ui'
+## Form generated from reading UI file 'GUIKcsXIe.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -676,13 +676,37 @@ class Ui_MainWindow(object):
         self.gridLayout_3 = QGridLayout(self.gridLayoutWidget)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.label_11 = QLabel(self.gridLayoutWidget)
+        self.label_11.setObjectName(u"label_11")
+        sizePolicy3.setHeightForWidth(self.label_11.sizePolicy().hasHeightForWidth())
+        self.label_11.setSizePolicy(sizePolicy3)
+        self.label_11.setFont(font)
+
+        self.gridLayout_3.addWidget(self.label_11, 2, 0, 1, 1)
+
+        self.label_9 = QLabel(self.gridLayoutWidget)
+        self.label_9.setObjectName(u"label_9")
+        sizePolicy3.setHeightForWidth(self.label_9.sizePolicy().hasHeightForWidth())
+        self.label_9.setSizePolicy(sizePolicy3)
+        self.label_9.setFont(font)
+
+        self.gridLayout_3.addWidget(self.label_9, 1, 0, 1, 1)
+
         self.txt_new_master_password = QLineEdit(self.gridLayoutWidget)
         self.txt_new_master_password.setObjectName(u"txt_new_master_password")
         self.txt_new_master_password.setFont(font2)
         self.txt_new_master_password.setStyleSheet(u"border-color: rgb(220, 220, 220);")
         self.txt_new_master_password.setEchoMode(QLineEdit.Password)
 
-        self.gridLayout_3.addWidget(self.txt_new_master_password, 0, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.txt_new_master_password, 1, 1, 1, 1)
+
+        self.txt_confirm_new_master = QLineEdit(self.gridLayoutWidget)
+        self.txt_confirm_new_master.setObjectName(u"txt_confirm_new_master")
+        self.txt_confirm_new_master.setFont(font2)
+        self.txt_confirm_new_master.setStyleSheet(u"border-color: rgb(220, 220, 220);")
+        self.txt_confirm_new_master.setEchoMode(QLineEdit.Password)
+
+        self.gridLayout_3.addWidget(self.txt_confirm_new_master, 2, 1, 1, 1)
 
         self.btn_apply_new_settings = QPushButton(self.gridLayoutWidget)
         self.btn_apply_new_settings.setObjectName(u"btn_apply_new_settings")
@@ -709,31 +733,23 @@ class Ui_MainWindow(object):
 "}")
         self.btn_apply_new_settings.setAutoDefault(True)
 
-        self.gridLayout_3.addWidget(self.btn_apply_new_settings, 2, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.btn_apply_new_settings, 3, 0, 1, 1)
 
-        self.label_9 = QLabel(self.gridLayoutWidget)
-        self.label_9.setObjectName(u"label_9")
-        sizePolicy3.setHeightForWidth(self.label_9.sizePolicy().hasHeightForWidth())
-        self.label_9.setSizePolicy(sizePolicy3)
-        self.label_9.setFont(font)
+        self.txt_current_master = QLineEdit(self.gridLayoutWidget)
+        self.txt_current_master.setObjectName(u"txt_current_master")
+        self.txt_current_master.setFont(font2)
+        self.txt_current_master.setStyleSheet(u"border-color: rgb(220, 220, 220);")
+        self.txt_current_master.setEchoMode(QLineEdit.Password)
 
-        self.gridLayout_3.addWidget(self.label_9, 0, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.txt_current_master, 0, 1, 1, 1)
 
-        self.label_11 = QLabel(self.gridLayoutWidget)
-        self.label_11.setObjectName(u"label_11")
-        sizePolicy3.setHeightForWidth(self.label_11.sizePolicy().hasHeightForWidth())
-        self.label_11.setSizePolicy(sizePolicy3)
-        self.label_11.setFont(font)
+        self.label_12 = QLabel(self.gridLayoutWidget)
+        self.label_12.setObjectName(u"label_12")
+        sizePolicy3.setHeightForWidth(self.label_12.sizePolicy().hasHeightForWidth())
+        self.label_12.setSizePolicy(sizePolicy3)
+        self.label_12.setFont(font)
 
-        self.gridLayout_3.addWidget(self.label_11, 1, 0, 1, 1)
-
-        self.txt_confirm_new_master = QLineEdit(self.gridLayoutWidget)
-        self.txt_confirm_new_master.setObjectName(u"txt_confirm_new_master")
-        self.txt_confirm_new_master.setFont(font2)
-        self.txt_confirm_new_master.setStyleSheet(u"border-color: rgb(220, 220, 220);")
-        self.txt_confirm_new_master.setEchoMode(QLineEdit.Password)
-
-        self.gridLayout_3.addWidget(self.txt_confirm_new_master, 1, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.label_12, 0, 0, 1, 1)
 
         self.label_8 = QLabel(self.page_settings)
         self.label_8.setObjectName(u"label_8")
@@ -1054,7 +1070,8 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.txt_password_name, self.txt_password)
         QWidget.setTabOrder(self.txt_password, self.btn_password_add)
         QWidget.setTabOrder(self.btn_password_add, self.btn_password_abort)
-        QWidget.setTabOrder(self.btn_password_abort, self.txt_new_master_password)
+        QWidget.setTabOrder(self.btn_password_abort, self.txt_current_master)
+        QWidget.setTabOrder(self.txt_current_master, self.txt_new_master_password)
         QWidget.setTabOrder(self.txt_new_master_password, self.txt_confirm_new_master)
         QWidget.setTabOrder(self.txt_confirm_new_master, self.btn_apply_new_settings)
 
@@ -1064,7 +1081,7 @@ class Ui_MainWindow(object):
         self.btn_minimize.setDefault(False)
         self.btn_maximize_restore.setDefault(False)
         self.btn_close.setDefault(False)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         self.btn_apply_new_settings.setDefault(False)
         self.btn_submit_master.setDefault(True)
         self.btn_cancel_master.setDefault(False)
@@ -1093,20 +1110,25 @@ class Ui_MainWindow(object):
         self.btn_close.setText("")
         self.label_top_info_1.setText("")
         self.label_top_info_2.setText(QCoreApplication.translate("MainWindow", u"| HOME", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Confirm Master Password", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Change Master Password", None))
 #if QT_CONFIG(tooltip)
         self.txt_new_master_password.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Change Master Password</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.txt_new_master_password.setPlaceholderText(QCoreApplication.translate("MainWindow", u"New Master Password", None))
 #if QT_CONFIG(tooltip)
-        self.btn_apply_new_settings.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>New Password</p></body></html>", None))
-#endif // QT_CONFIG(tooltip)
-        self.btn_apply_new_settings.setText("")
-        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Change Master Password", None))
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Confirm Master Password", None))
-#if QT_CONFIG(tooltip)
         self.txt_confirm_new_master.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Confirm Master Password</p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
         self.txt_confirm_new_master.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Confirm Master Password", None))
+#if QT_CONFIG(tooltip)
+        self.btn_apply_new_settings.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>New Password</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.btn_apply_new_settings.setText("")
+#if QT_CONFIG(tooltip)
+        self.txt_current_master.setToolTip(QCoreApplication.translate("MainWindow", u"<html><head/><body><p>Confirm Master Password</p></body></html>", None))
+#endif // QT_CONFIG(tooltip)
+        self.txt_current_master.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Current Master Password", None))
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"Current Master Password", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"Settings", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Password Manager", None))
 #if QT_CONFIG(tooltip)
