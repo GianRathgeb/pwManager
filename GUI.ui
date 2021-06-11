@@ -1542,7 +1542,7 @@ QPushButton:pressed {
                    <string notr="true">background: transparent;</string>
                   </property>
                   <property name="currentIndex">
-                   <number>0</number>
+                   <number>1</number>
                   </property>
                   <widget class="QWidget" name="page_settings">
                    <widget class="QWidget" name="gridLayoutWidget">
@@ -1555,7 +1555,45 @@ QPushButton:pressed {
                      </rect>
                     </property>
                     <layout class="QGridLayout" name="gridLayout_3">
-                     <item row="0" column="1">
+                     <item row="2" column="0">
+                      <widget class="QLabel" name="label_11">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <family>Segoe UI</family>
+                         <pointsize>10</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Confirm Master Password</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="0">
+                      <widget class="QLabel" name="label_9">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <family>Segoe UI</family>
+                         <pointsize>10</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Change Master Password</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="1" column="1">
                       <widget class="QLineEdit" name="txt_new_master_password">
                        <property name="font">
                         <font>
@@ -1576,7 +1614,28 @@ QPushButton:pressed {
                        </property>
                       </widget>
                      </item>
-                     <item row="2" column="0">
+                     <item row="2" column="1">
+                      <widget class="QLineEdit" name="txt_confirm_new_master">
+                       <property name="font">
+                        <font>
+                         <family>Segoe UI</family>
+                        </font>
+                       </property>
+                       <property name="toolTip">
+                        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Confirm Master Password&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                       </property>
+                       <property name="styleSheet">
+                        <string notr="true">border-color: rgb(220, 220, 220);</string>
+                       </property>
+                       <property name="echoMode">
+                        <enum>QLineEdit::Password</enum>
+                       </property>
+                       <property name="placeholderText">
+                        <string>Confirm Master Password</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="3" column="0">
                       <widget class="QPushButton" name="btn_apply_new_settings">
                        <property name="sizePolicy">
                         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -1627,46 +1686,8 @@ QPushButton:pressed {
                        </property>
                       </widget>
                      </item>
-                     <item row="0" column="0">
-                      <widget class="QLabel" name="label_9">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="font">
-                        <font>
-                         <family>Segoe UI</family>
-                         <pointsize>10</pointsize>
-                        </font>
-                       </property>
-                       <property name="text">
-                        <string>Change Master Password</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="0">
-                      <widget class="QLabel" name="label_11">
-                       <property name="sizePolicy">
-                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                         <horstretch>0</horstretch>
-                         <verstretch>0</verstretch>
-                        </sizepolicy>
-                       </property>
-                       <property name="font">
-                        <font>
-                         <family>Segoe UI</family>
-                         <pointsize>10</pointsize>
-                        </font>
-                       </property>
-                       <property name="text">
-                        <string>Confirm Master Password</string>
-                       </property>
-                      </widget>
-                     </item>
-                     <item row="1" column="1">
-                      <widget class="QLineEdit" name="txt_confirm_new_master">
+                     <item row="0" column="1">
+                      <widget class="QLineEdit" name="txt_current_master">
                        <property name="font">
                         <font>
                          <family>Segoe UI</family>
@@ -1682,7 +1703,26 @@ QPushButton:pressed {
                         <enum>QLineEdit::Password</enum>
                        </property>
                        <property name="placeholderText">
-                        <string>Confirm Master Password</string>
+                        <string>Current Master Password</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item row="0" column="0">
+                      <widget class="QLabel" name="label_12">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="font">
+                        <font>
+                         <family>Segoe UI</family>
+                         <pointsize>10</pointsize>
+                        </font>
+                       </property>
+                       <property name="text">
+                        <string>Current Master Password</string>
                        </property>
                       </widget>
                      </item>
@@ -2411,6 +2451,7 @@ QPushButton:pressed {
   <tabstop>txt_password</tabstop>
   <tabstop>btn_password_add</tabstop>
   <tabstop>btn_password_abort</tabstop>
+  <tabstop>txt_current_master</tabstop>
   <tabstop>txt_new_master_password</tabstop>
   <tabstop>txt_confirm_new_master</tabstop>
   <tabstop>btn_apply_new_settings</tabstop>

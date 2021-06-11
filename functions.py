@@ -17,7 +17,7 @@ class Functions():
     #! self to change GUI start
 
     def showPasswords(self):
-        if self.stateHasChanged == True:
+        if self.stateHasChanged:
             self.fnReadPasswords()
             tablePasswords = []
             if self.keyValidated:
@@ -103,7 +103,7 @@ class Functions():
         # repeat key until there is a bit for every bit in the cipher text
         try:
             strBinaryKey = (strBinaryKey * (int(len(strBinaryCipherText) /
-                            len(strBinaryKey))+1))[:len(strBinaryCipherText)]
+                                                len(strBinaryKey))+1))[:len(strBinaryCipherText)]
         except ZeroDivisionError:
             # happens if no key give
             exit()
@@ -140,7 +140,7 @@ class Functions():
             else:
                 if not self.keyValidated:
                     self.keyHash = j
-                    self.fnValidateKey(self.keyHash, self.strKey)
+                    self.fnValidateKey()
                     if not self.keyValidated:
                         print("Wrong Key")
 
@@ -166,44 +166,28 @@ class Functions():
             self.tempArr.pop(indexes[i])
         self.fnRewriteFile()
 
-    def fnValidateKey(self, encrpytedHash, key):
-        strKeyHash = hashlib.sha256(key.encode()).hexdigest()
-        strHashToTest = self.fnEncryptString(strKeyHash, key)
-        if encrpytedHash == strHashToTest:
+    def fnValidateKey(self):
+        strKeyHash = hashlib.sha256(self.strKey.encode()).hexdigest()
+        strHashToTest = self.fnEncryptString(strKeyHash, self.strKey)
+        if self.keyHash == strHashToTest:
             self.keyValidated = True
         else:
-            return
+            self.keyValidated = False
 
     def changeMaster(self, newKey):
         strKeyHash = hashlib.sha256(newKey.encode()).hexdigest()
         strEncryptedHash = self.fnEncryptString(strKeyHash, newKey)
-        self.keyHash = strEncryptedHash
         newEncryptedPasswords = []
         for i, password in enumerate(self.tempArr):
-            newEncryptedPasswords.append([i, self.fnEncryptString(password[1], newKey)])
+            newEncryptedPasswords.append(
+                [self.fnEncryptString(password[1], newKey), password[1]])
         self.tempArr = newEncryptedPasswords.copy()
-        # TODO: Problem is here
+        self.keyHash = strEncryptedHash
+        self.strKey = newKey
+        self.stateHasChanged = True
         self.fnRewriteFile()
+        self.fnValidateKey()
+        self.showPasswords()
 
     #! File handler end
 
-    #! Menu functions start
-    # @param: FileWriter, Reference to the rewrite File function
-    def fnMenu3(self, *args):
-        print("\n\n")
-        for i, j in enumerate(args[0]):
-            print(i, j[1])
-        deletePassword = int(
-            input("Which password do you want to delete? (Use number)\n"))
-        try:
-            args[0].pop(deletePassword)
-            args[1]()
-            print("\n\n")
-        except IndexError:
-            print("Please enter a correct password")
-
-    # @param: -
-    def fnMenu4(self, *args):
-        exit()
-
-    #! Menu functions end

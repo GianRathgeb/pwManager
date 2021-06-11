@@ -10,10 +10,9 @@ from tableModel import TableModel
 
 
 # TODO: 
-# * Function to change the master password (implemented, but does not correctly work)
-# * Selection function if multiple fields from table are selected
+# * Enter old password before changing master
+# * Selection function if multiple fields from table are selected (selection works, but does not show)
 # * List view makes window blinking when resizing
-
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -91,7 +90,7 @@ class MainWindow(QMainWindow):
                 UIFunctions.labelPage(self, "Settings")
                 btnWidget.setStyleSheet(
                     UIFunctions.selectMenu(btnWidget.styleSheet()))
-                self.ui.txt_new_master_password.setFocus()
+                self.ui.txt_current_master.setFocus()
 
     def eventFilter(self, watched, event):
         if watched == self.le and event.type() == QtCore.QEvent.MouseButtonDblClick:
@@ -140,11 +139,17 @@ class MainWindow(QMainWindow):
         self.functionsObject.showPasswords()
 
     def applySettings(self):
-        newKey = self.ui.txt_new_master_password.text()
-        confirmKey = self.ui.txt_confirm_new_master.text()
-        if newKey == confirmKey:
-            self.functionsObject.changeMaster(newKey)
-            print(f"Changed key to {newKey}")
+        inputCurrentKey = self.ui.txt_current_master.text()
+        if self.functionsObject.strKey == inputCurrentKey:
+            newKey = self.ui.txt_new_master_password.text()
+            confirmKey = self.ui.txt_confirm_new_master.text()
+            if newKey == confirmKey:
+                self.functionsObject.changeMaster(newKey)
+                self.ui.txt_new_master_password.setText('')
+                self.ui.txt_confirm_new_master.setText('')
+                self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
+        else:
+            print("Wrong Master Passwords entered")
 
     def submitMaster(self):
         masterKey = self.ui.txt_master_password.text()
