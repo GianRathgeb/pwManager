@@ -153,6 +153,9 @@ class MainWindow(QMainWindow):
     def submitMaster(self):
         masterKey = self.ui.txt_master_password.text()
         filename = self.ui.txt_password_file.text()
+        # Next if needed, else the program would close if no key entered
+        if masterKey == "":
+            masterKey = "™" # You cannot type this character, so this key will not be valid
         if filename == "":
             filename = "passwords.csv"
         self.functionsObject = Functions(self.ui, filename, masterKey)
