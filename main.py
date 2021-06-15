@@ -118,6 +118,7 @@ class MainWindow(QMainWindow):
               ' | Width: ' + str(self.width()))
 
     def addPassword(self):
+        # Add a new password to the database
         strPassword = str(self.ui.txt_password.text()).replace(';', '')
         strPasswordName = str(self.ui.txt_password_name.text()).replace(';', '')
         strEncryptedPassword = self.functionsObject.fnEncryptString(
@@ -127,10 +128,12 @@ class MainWindow(QMainWindow):
         self.ui.txt_password_name.setText("")
 
     def clearPassword(self):
+        # Clear input fields of the add password menu
         self.ui.txt_password.setText("")
         self.ui.txt_password_name.setText("")
 
     def deletePassword(self):
+        # Delete a password from the database
         indexes = self.ui.table_view_your_passwords.selectedIndexes()
         rows = set()
         for index in indexes:
@@ -139,6 +142,7 @@ class MainWindow(QMainWindow):
         self.functionsObject.showPasswords()
 
     def applySettings(self):
+        # change settings, will be executed when pressing the apply button in the settings page
         inputCurrentKey = self.ui.txt_current_master.text()
         if self.functionsObject.strKey == inputCurrentKey:
             newKey = self.ui.txt_new_master_password.text()
@@ -152,6 +156,7 @@ class MainWindow(QMainWindow):
             print("Wrong Master Passwords entered")
 
     def submitMaster(self):
+        # validate master password, only executed when master password needs to be inputted
         masterKey = self.ui.txt_master_password.text()
         filename = self.ui.txt_password_file.text()
         # Next if needed, else the program would close if no key entered
