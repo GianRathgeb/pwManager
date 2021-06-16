@@ -8,15 +8,17 @@ import hashlib
 
 class Functions():
     def __init__(self, ui, fileName, strKey):
+        # Init function, define variables
         self.ui = ui
         self.strFileName = fileName
         self.strKey = strKey
         self.keyValidated = False
         self.stateHasChanged = True
 
-    #! self to change GUI start
+
 
     def showPasswords(self):
+        # show the passwords, read them from tempArr and create a table model
         if self.stateHasChanged:
             self.fnReadPasswords()
             tablePasswords = []
@@ -30,11 +32,10 @@ class Functions():
                 self.ui.table_view_your_passwords.horizontalHeader().setStretchLastSection(True)
                 self.stateHasChanged = False
 
-    #! self to change GUI end
 
-    #! Operations start
 
     def isInt(self, s):
+        # check if an inputted character is type = string
         try:
             int(s)
             return True
@@ -42,6 +43,7 @@ class Functions():
             return False
 
     def xor(self, a, b):
+        # perform the bitwise x-or on the a and b binary string inputted
         ans = ""
         # Loop to iterate over the
         # Binary Strings
@@ -54,6 +56,7 @@ class Functions():
         return ans
 
     def fnStrToBin(self, StringToBin):
+        # translate a string into a binary string
         arrCharsBin = []
         for char in [char for char in StringToBin]:
             if self.isInt(char):
@@ -119,11 +122,9 @@ class Functions():
         # return the clear text
         return strClearText
 
-    #! Operations end
-
-    #! File handler start
 
     def fnReadPasswords(self):
+        # read all passwords from the password file (path required to create this object)
         with open(self.strFileName) as csv_file:
             csv_reader = csv.reader(csv_file, delimiter=',')
             self.arrPasswords = []
@@ -145,11 +146,14 @@ class Functions():
                         print("Wrong Key")
 
     def fnWritePassword(self, strPasswords):
+        # write a new password to the end of the file
         with open(self.strFileName, mode='a+') as objPasswordFile:
             objPasswordFile.write(f"\n{strPasswords}")
         self.stateHasChanged = True
 
     def fnRewriteFile(self):
+        # rewrite the complete password file (unly used when deleting a password)
+        # only called by the fnDeletePassword function
         with open(self.strFileName, mode='w') as objPasswordFile:
             strToWrite = f"{self.keyHash}"
             for i in self.tempArr:
@@ -158,6 +162,7 @@ class Functions():
         self.stateHasChanged = True
 
     def fnDeletePassword(self, set):
+        # function that is called when you want to delete a password
         indexes = list(set)
         # Sort the list in reverse (no problems with indexes if multiple rows selected)
         indexes.sort(reverse=True)
@@ -167,6 +172,7 @@ class Functions():
         self.fnRewriteFile()
 
     def fnValidateKey(self):
+        # compare the given key (while creating object) with the stored key in the file to validate it
         strKeyHash = hashlib.sha256(self.strKey.encode()).hexdigest()
         strHashToTest = self.fnEncryptString(strKeyHash, self.strKey)
         if self.keyHash == strHashToTest:
@@ -175,12 +181,15 @@ class Functions():
             self.keyValidated = False
 
     def changeMaster(self, newKey):
+        # change the master password
         strKeyHash = hashlib.sha256(newKey.encode()).hexdigest()
         strEncryptedHash = self.fnEncryptString(strKeyHash, newKey)
         newEncryptedPasswords = []
+        # re-encrypt all passwords in the file
         for i, password in enumerate(self.tempArr):
             newEncryptedPasswords.append(
                 [self.fnEncryptString(password[1], newKey), password[1]])
+        # set all the variable and reprocess the file (write and read it again)
         self.tempArr = newEncryptedPasswords.copy()
         self.keyHash = strEncryptedHash
         self.strKey = newKey
@@ -188,6 +197,3 @@ class Functions():
         self.fnRewriteFile()
         self.fnValidateKey()
         self.showPasswords()
-
-    #! File handler end
-
