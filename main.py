@@ -145,14 +145,17 @@ class MainWindow(QMainWindow):
         # change settings, will be executed when pressing the apply button in the settings page
         inputCurrentKey = self.ui.txt_current_master.text()
         if self.functionsObject.strKey == inputCurrentKey:
+            # when the current key is correct
             newKey = self.ui.txt_new_master_password.text()
             confirmKey = self.ui.txt_confirm_new_master.text()
             if newKey == confirmKey:
+                # when the new key is correctly typed in 2 times
                 self.functionsObject.changeMaster(newKey)
                 self.ui.txt_new_master_password.setText('')
                 self.ui.txt_confirm_new_master.setText('')
                 self.ui.stackedWidget.setCurrentWidget(self.ui.page_home)
         else:
+            # when the current key is not correct
             print("Wrong Master Passwords entered")
 
     def submitMaster(self):
