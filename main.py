@@ -4,7 +4,6 @@
 # https://github.com/gianrathgeb
 
 
-
 # Import modules
 from managerModules import *
 from tableModel import TableModel
