@@ -3,7 +3,7 @@
 # The rest of the code and GUI was made by GianRathgeb
 # https://github.com/gianrathgeb
 
-
+# Version: 0.5
 
 # Import modules
 from managerModules import *
