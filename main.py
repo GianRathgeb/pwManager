@@ -5,6 +5,7 @@
 
 # Version: 0.5
 
+
 # Import modules
 from managerModules import *
 from tableModel import TableModel
