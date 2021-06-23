@@ -1,7 +1,8 @@
 # Credit to Wanderson Magalhaes, the GUI is inspired by him
 # https://github.com/Wanderson-Magalhaes/Simple_PySide_Base
-# The rest of the code and GUI was made by GianRathgeb
+# The rest of the code and GUI was made by Gian Rathgeb
 # https://github.com/gianrathgeb
+# https://linkedin.com/in/gianrathgeb
 
 # Version: 0.5
 
