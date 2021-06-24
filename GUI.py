@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUIKcsXIe.ui'
+## Form generated from reading UI file 'GUIyIzdTd.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -858,6 +858,7 @@ class Ui_MainWindow(object):
         self.table_view_your_passwords.setFrameShape(QFrame.StyledPanel)
         self.table_view_your_passwords.setFrameShadow(QFrame.Sunken)
         self.table_view_your_passwords.setLineWidth(1)
+        self.table_view_your_passwords.setSelectionMode(QAbstractItemView.MultiSelection)
         self.table_view_your_passwords.horizontalHeader().setVisible(False)
         self.table_view_your_passwords.verticalHeader().setVisible(False)
 
@@ -1081,7 +1082,7 @@ class Ui_MainWindow(object):
         self.btn_minimize.setDefault(False)
         self.btn_maximize_restore.setDefault(False)
         self.btn_close.setDefault(False)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
         self.btn_apply_new_settings.setDefault(False)
         self.btn_submit_master.setDefault(True)
         self.btn_cancel_master.setDefault(False)
