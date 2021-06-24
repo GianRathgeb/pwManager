@@ -8,6 +8,7 @@
 
 
 # Import modules
+from PySide2.QtCore import QAbstractTableModel
 from managerModules import *
 from tableModel import TableModel
 
@@ -45,6 +46,11 @@ class MainWindow(QMainWindow):
         self.ui.btn_submit_master.clicked.connect(self.submitMaster)
         self.ui.btn_cancel_master.clicked.connect(lambda: sys.exit())
         self.ui.btn_apply_new_settings.clicked.connect(self.applySettings)
+
+        # SELECTION BEHAVIOR
+        #! Does not work
+        self.ui.table_view_your_passwords.setSelectionBehavior(QAbstractItemView.SelectItems)
+        self.ui.table_view_your_passwords.setSelectionMode(QAbstractItemView.MultiSelection)
 
         def moveWindow(event):
             # IF MAXIMIZED CHANGE TO NORMAL
