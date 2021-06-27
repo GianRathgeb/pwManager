@@ -19,7 +19,6 @@ from tableModel import TableModel
 # * List view makes window blinking when resizing
 # * Clean code
 
-
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
