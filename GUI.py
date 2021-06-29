@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUIyIzdTd.ui'
+## Form generated from reading UI file 'GUIoAmIwC.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -854,11 +854,13 @@ class Ui_MainWindow(object):
 "	selection-background-color: rgba(83, 92, 110, 200);\n"
 "	border: 1px solid white;\n"
 "}\n"
+"selection-background-color: rgb(28, 194, 255);\n"
+"selection-color: rgb(255, 0, 4);\n"
 "")
         self.table_view_your_passwords.setFrameShape(QFrame.StyledPanel)
         self.table_view_your_passwords.setFrameShadow(QFrame.Sunken)
         self.table_view_your_passwords.setLineWidth(1)
-        self.table_view_your_passwords.setSelectionMode(QAbstractItemView.MultiSelection)
+        self.table_view_your_passwords.setSelectionMode(QAbstractItemView.SingleSelection)
         self.table_view_your_passwords.horizontalHeader().setVisible(False)
         self.table_view_your_passwords.verticalHeader().setVisible(False)
 
@@ -1179,4 +1181,5 @@ class Ui_MainWindow(object):
         self.label_credits.setText(QCoreApplication.translate("MainWindow", u"Gian Rathgeb", None))
         self.label_version.setText(QCoreApplication.translate("MainWindow", u"v1.0.0", None))
     # retranslateUi
+
 

@@ -17,7 +17,6 @@ from tableModel import TableModel
 # TODO: 
 # * Selection function if multiple fields from table are selected (selection works, but does not show)
 # * List view makes window blinking when resizing
-#? Asked stackoverflow to help with this problem: https://stackoverflow.com/questions/68160719/pyside2-mouse-selection-does-not-show-up-on-qtableview
 # * Clean code
 
 class MainWindow(QMainWindow):
@@ -51,9 +50,9 @@ class MainWindow(QMainWindow):
 
         # SELECTION BEHAVIOR
         #! Does not work
-        self.ui.table_view_your_passwords.setSelectionBehavior(QAbstractItemView.SelectItems)
-        self.ui.table_view_your_passwords.setSelectionMode(QAbstractItemView.MultiSelection)
-        #? Asked stack overflow, link is in the TODO at the top of this document
+        #self.ui.table_view_your_passwords.setSelectionBehavior(QAbstractItemView.SelectItems)
+        #self.ui.table_view_your_passwords.setSelectionMode(QAbstractItemView.MultiSelection)
+
 
         def moveWindow(event):
             # IF MAXIMIZED CHANGE TO NORMAL
