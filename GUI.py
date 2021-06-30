@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'GUIoAmIwC.ui'
+## Form generated from reading UI file 'GUIpmthjp.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -860,7 +860,7 @@ class Ui_MainWindow(object):
         self.table_view_your_passwords.setFrameShape(QFrame.StyledPanel)
         self.table_view_your_passwords.setFrameShadow(QFrame.Sunken)
         self.table_view_your_passwords.setLineWidth(1)
-        self.table_view_your_passwords.setSelectionMode(QAbstractItemView.SingleSelection)
+        self.table_view_your_passwords.setSelectionMode(QAbstractItemView.MultiSelection)
         self.table_view_your_passwords.horizontalHeader().setVisible(False)
         self.table_view_your_passwords.verticalHeader().setVisible(False)
 
@@ -1181,5 +1181,4 @@ class Ui_MainWindow(object):
         self.label_credits.setText(QCoreApplication.translate("MainWindow", u"Gian Rathgeb", None))
         self.label_version.setText(QCoreApplication.translate("MainWindow", u"v1.0.0", None))
     # retranslateUi
-
 
