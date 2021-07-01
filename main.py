@@ -15,7 +15,7 @@ from managerModules import *
 
 
 # TODO: 
-# * List view makes window blinking when resizing
+# * List view makes window blinking when resizing (still no solution for this problem)
 # * Clean code
 
 class MainWindow(QMainWindow):
