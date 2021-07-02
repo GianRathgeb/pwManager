@@ -13,7 +13,6 @@ from PySide2.QtCore import QAbstractTableModel
 from managerModules import *
 
 
-
 # TODO: 
 # * List view makes window blinking when resizing (still no solution for this problem)
 # * Clean code
