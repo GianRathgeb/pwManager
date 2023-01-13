@@ -1,4 +1,5 @@
 #! This is just a file that is used for testing to generate masterpasswords and output them as strings
+#! use this for debugging and creating new password databases
 
 import hashlib
 
