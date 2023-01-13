@@ -1,7 +1,8 @@
 import hashlib
 import progressbar
 import time
-from functions import fnEncryptString 
+# the only function called, but other functions are used as well but importing them is not needed
+from brute_force_functions import fnEncryptString 
 
 # this code can be used to brute force the master password of the password database
 # do not use this for malicious purposes

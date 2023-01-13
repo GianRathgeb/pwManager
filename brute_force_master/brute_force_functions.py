@@ -1,4 +1,6 @@
 # Functions used by the brute forcer
+# all of the functions are copied from the functions.py file in the main branch
+# but they are modified since this program is not object oriented
 
 
 # this is just a const of the number dict file:
